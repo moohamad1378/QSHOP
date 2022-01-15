@@ -1,0 +1,12 @@
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Infrastructure.deps.json
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Infrastructure.dll
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\ref\Infrastructure.dll
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Infrastructure.pdb
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.AssemblyReference.cache
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfoInputs.cache
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.AssemblyInfo.cs
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompileInputs.cache
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb

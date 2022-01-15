@@ -1,0 +1,11 @@
+F:\QSHOP\QSHOP\Common\bin\Debug\net6.0\Common.deps.json
+F:\QSHOP\QSHOP\Common\bin\Debug\net6.0\Common.dll
+F:\QSHOP\QSHOP\Common\bin\Debug\net6.0\ref\Common.dll
+F:\QSHOP\QSHOP\Common\bin\Debug\net6.0\Common.pdb
+F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.AssemblyInfoInputs.cache
+F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.AssemblyInfo.cs
+F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.csproj.CoreCompileInputs.cache
+F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.dll
+F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\ref\Common.dll
+F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.pdb
