@@ -10,3 +10,10 @@ F:\QSHOP\QSHOP\Application\obj\Debug\net6.0\Application.csproj.CoreCompileInputs
 F:\QSHOP\QSHOP\Application\obj\Debug\net6.0\Application.dll
 F:\QSHOP\QSHOP\Application\obj\Debug\net6.0\ref\Application.dll
 F:\QSHOP\QSHOP\Application\obj\Debug\net6.0\Application.pdb
+F:\QSHOP\QSHOP\Application\bin\Debug\net6.0\Common.dll
+F:\QSHOP\QSHOP\Application\bin\Debug\net6.0\Domain.dll
+F:\QSHOP\QSHOP\Application\bin\Debug\net6.0\Persistence.dll
+F:\QSHOP\QSHOP\Application\bin\Debug\net6.0\Common.pdb
+F:\QSHOP\QSHOP\Application\bin\Debug\net6.0\Persistence.pdb
+F:\QSHOP\QSHOP\Application\bin\Debug\net6.0\Domain.pdb
+F:\QSHOP\QSHOP\Application\obj\Debug\net6.0\Application.csproj.CopyComplete

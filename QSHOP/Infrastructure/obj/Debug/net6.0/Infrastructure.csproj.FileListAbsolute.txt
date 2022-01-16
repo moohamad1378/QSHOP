@@ -10,3 +10,12 @@ F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CoreCompile
 F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.dll
 F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
 F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Application.dll
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Common.dll
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Domain.dll
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Persistence.dll
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Application.pdb
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Domain.pdb
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Common.pdb
+F:\QSHOP\QSHOP\Infrastructure\bin\Debug\net6.0\Persistence.pdb
+F:\QSHOP\QSHOP\Infrastructure\obj\Debug\net6.0\Infrastructure.csproj.CopyComplete

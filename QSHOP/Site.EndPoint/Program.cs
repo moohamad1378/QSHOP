@@ -1,13 +1,22 @@
+using Application.Services.Catalogs.CatalogTypss;
 using Domain.Users;
 using Infrastructure.IdentityCustomrErorr;
+using Infrastructure.MappingProfile;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Persistence.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 ConfigurationManager configuration = builder.Configuration;
+
+#region Injecting
+builder.Services.AddTransient<ICatalogTypssServices, CatalogTypssServices>();
+#endregion
+
+
 #region Database
 builder.Services.AddDbContext<DataBaseContext>(p =>
 p.UseSqlServer(configuration["ConnectionStrings:SqlServer1"]));
@@ -52,6 +61,10 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 #endregion
+
+#region Mapper
+builder.Services.AddAutoMapper(typeof(CatalogMappingProfile));
+#endregion
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -72,8 +85,15 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+});
 app.MapControllerRoute(
-    name: "default",
+name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

@@ -85,6 +85,24 @@ namespace Persistence.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "abcd1-abcd2-abcd3-abcd4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "aaab4477-7be5-4e63-b629-0935ffd9c84d",
+                            Email = "Qasemiyan.mostafa@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "Admin",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "315876fc-32c3-4a07-9c3a-855d41525235",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -112,6 +130,26 @@ namespace Persistence.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "4",
+                            ConcurrencyStamp = "f2ac7301-5973-4af4-8108-e8229d76ade2",
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = "5",
+                            ConcurrencyStamp = "530baf75-cb98-481c-be74-7b7fddcd17da",
+                            Name = "Operator"
+                        },
+                        new
+                        {
+                            Id = "6",
+                            ConcurrencyStamp = "5525e5b2-22ff-4498-99ab-0ec8b7d7171b",
+                            Name = "Customer"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -199,6 +237,13 @@ namespace Persistence.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "abcd1-abcd2-abcd3-abcd4",
+                            RoleId = "4"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
