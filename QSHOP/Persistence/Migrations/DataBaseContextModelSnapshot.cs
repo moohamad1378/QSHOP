@@ -22,6 +22,43 @@ namespace Persistence.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Domain.Catalogs.CatalogBrand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CatalogBrands");
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.CatalogType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("ParentCatalogTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCatalogTypeId");
+
+                    b.ToTable("CatalogTypes");
+                });
+
             modelBuilder.Entity("Domain.Users.User", b =>
                 {
                     b.Property<string>("Id")
@@ -89,17 +126,17 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "abcd1-abcd2-abcd3-abcd4",
+                            Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "aaab4477-7be5-4e63-b629-0935ffd9c84d",
+                            ConcurrencyStamp = "d3003c15-0dc2-412b-95b4-1492c99b91aa",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "Admin",
+                            PasswordHash = "AQAAAAEAACcQAAAAENmKTFXm+uL34Ty1x4ooGcr7ZH8/mQY2yJlMeIp5HwPPV7npIqwu5FxGvzq+xaNSzg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "315876fc-32c3-4a07-9c3a-855d41525235",
+                            SecurityStamp = "525f2fad-fbab-4354-be1b-7f518cc68040",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -135,19 +172,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "f2ac7301-5973-4af4-8108-e8229d76ade2",
+                            ConcurrencyStamp = "148b3c6b-b3fa-4a66-8788-3071d418d036",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "530baf75-cb98-481c-be74-7b7fddcd17da",
+                            ConcurrencyStamp = "017c556b-c119-4d7b-ae69-3538c99295e6",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "5525e5b2-22ff-4498-99ab-0ec8b7d7171b",
+                            ConcurrencyStamp = "69e9cfc7-e8c2-4605-8e52-589e4473f059",
                             Name = "Customer"
                         });
                 });
@@ -241,7 +278,7 @@ namespace Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "abcd1-abcd2-abcd3-abcd4",
+                            UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             RoleId = "4"
                         });
                 });
@@ -263,6 +300,15 @@ namespace Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.CatalogType", b =>
+                {
+                    b.HasOne("Domain.Catalogs.CatalogType", "ParentCatalogType")
+                        .WithMany("SubType")
+                        .HasForeignKey("ParentCatalogTypeId");
+
+                    b.Navigation("ParentCatalogType");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -314,6 +360,11 @@ namespace Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.CatalogType", b =>
+                {
+                    b.Navigation("SubType");
                 });
 #pragma warning restore 612, 618
         }

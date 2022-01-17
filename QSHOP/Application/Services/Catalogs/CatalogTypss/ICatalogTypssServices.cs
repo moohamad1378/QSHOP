@@ -17,7 +17,7 @@ namespace Application.Services.Catalogs.CatalogTypss
         ResutlDto Remove(int Id);
         ResutlDto<CatalogTypeDto> Edit(CatalogTypeDto CatalogTypeDto);
         ResutlDto<CatalogTypeDto> FindById(int Id);
-        PaginatedItemsDto<CatalogTypeListDto> GetList(int? ParentId, int page, int pagesize);
+        List<CatalogTypeListDto> GetList(int? ParentId);
     }
     public class CatalogTypssServices : ICatalogTypssServices
     {
@@ -36,9 +36,7 @@ namespace Application.Services.Catalogs.CatalogTypss
             context.SaveChanges();
             return new ResutlDto<CatalogTypeDto>
             {
-                Data = mapper.Map<CatalogTypeDto>(model),
-                IsSuccess = true,
-                Message = { $"تایپ {model.Type} با موفقیت ثبت شد" }
+                IsSuccess = true
             };
         }
 
@@ -49,9 +47,9 @@ namespace Application.Services.Catalogs.CatalogTypss
             context.SaveChanges();
             return new ResutlDto<CatalogTypeDto>
             {
-                Data = mapper.Map<CatalogTypeDto>(model),
+
                 IsSuccess = true,
-                Message = { $"تایپ {model.Type} با موفقیت ویرایش شد" }
+
             };
         }
 
@@ -68,23 +66,40 @@ namespace Application.Services.Catalogs.CatalogTypss
             };
         }
 
-        public PaginatedItemsDto<CatalogTypeListDto> GetList(int? ParentId, int page, int pagesize)
+        public List<CatalogTypeListDto> GetList(int? ParentId)
         {
-            int totalcount=0;
-            var model=context.CatalogTypes.AsQueryable().PagedResult(page,pagesize,out totalcount);
-            var result = mapper.ProjectTo<CatalogTypeListDto>(model).ToList();
-            return new PaginatedItemsDto<CatalogTypeListDto>(page,pagesize,totalcount,result);
+            if(ParentId != null)
+            {
+                var model1=context.CatalogTypes.Where(p=>p.ParentCatalogTypeId == ParentId)
+                    .Select(p=>new CatalogTypeListDto
+                    {
+                        Id=p.Id,
+                        Type=p.Type
+                    }).ToList();
+                return model1;
+            }
+            else
+            {
+                var model = context.CatalogTypes.Where(p => p.ParentCatalogTypeId == null)
+                    .Select(p=>new CatalogTypeListDto
+                    {
+                        Id=p.Id,
+                        Type=p.Type
+                    }).ToList();
+
+                return model;
+            }
+
         }
 
         public ResutlDto Remove(int Id)
         {
-            var catalogtype = context.CatalogTypes.Find(Id);
-            context.CatalogTypes.Remove(catalogtype);
+            var catalogtype = context.CatalogTypes.Where(p=>p.Id==Id || p.ParentCatalogTypeId==Id).ToList();
+            context.CatalogTypes.RemoveRange(catalogtype);
             context.SaveChanges();
             return new ResutlDto
             {
                 IsSuccess = true,
-                Message = { " حذف شد" }
             };
         }
     }
@@ -93,10 +108,11 @@ namespace Application.Services.Catalogs.CatalogTypss
         public int Id { get; set; }
         public string? Type { get; set; }
         public int? ParentCatalogTypeId { get; set; }
+
     }
     public class CatalogTypeListDto
     {
-        public int Id { get;}
+        public int Id { get; set; }
         public string? Type { get; set; }
         public int SubTypeCount { get; set; }
     }

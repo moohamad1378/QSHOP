@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService _auth;
+<!DOCTYPE html>
 <!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
@@ -93,10 +95,29 @@
                             <a href="https://www.instagram.com/bayatechlift/"><span class="zocial-instagram"></span></a>
                             <a href="Info@bayatechlift.com"><span class="zocial-gmail"></span></a>
                         </div>
-                        <div class="register">
-                            <a href="#loginModal" role="button" data-toggle="modal">ورود</a> یا  
-                            <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>
+                               @if (User.Identity.IsAuthenticated)
+                            {
+                                <a href="~/account/logout">
+                                    <span>خروج</span>
+                                   
+                                </a>
+                                <a href="" >
+                                    <span>نام کاربری شما هست @User.Identity.Name</span>
+                                </a>
+                            }
+                               else
+                                {
+                            <div class="register">
+
+                                
+
+                                <a href="#loginModal" role="button" data-toggle="modal">ورود</a> یا  <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>
+                                
+
+                                
                         </div>
+                            }
+                               
                     </div>
                 </div> <!-- /social icons -->
             </div>
@@ -371,17 +392,17 @@
             <h3 id="loginModalLabel"><span class="light">ورود</span> در قاسمیان شاپ</h3>
         </div>
         <div class="modal-body">
-            <form method="post" action="#">
+            <form method="post" asp-action="Login" asp-controller="Account">
                 <div class="control-group">
                     <label class="control-label hidden shown-ie8" for="inputEmail">نام کاربری</label>
                     <div class="controls">
-                        <input type="text" class="input-block-level" id="inputEmail" placeholder="Username">
+                        <input type="text" required class="input-block-level" id="inputEmail" name="UserName" placeholder="Username">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label hidden shown-ie8" for="inputPassword">رمز عبور</label>
                     <div class="controls">
-                        <input type="password" class="input-block-level" id="inputPassword" placeholder="Password">
+                        <input type="password" required name="Password" class="input-block-level" id="inputPassword" placeholder="Password">
                     </div>
                 </div>
                 <div class="control-group">
@@ -409,23 +430,29 @@
             <h3 id="registerModalLabel"><span class="light">عضویت</span> در وبمارکت</h3>
         </div>
         <div class="modal-body">
-            <form method="post" action="#">
+            <form method="post" asp-action="Register" asp-controller="Account" >
+                        @if(TempData["Message"] != null)
+        {
+        <div class="alert alert-danger">
+            <text>@TempData["Message"]</text>
+        </div>
+        }
                 <div class="control-group">
                     <label class="control-label hidden shown-ie8" for="inputUsernameRegister">نام کاربری</label>
                     <div class="controls">
-                        <input type="text" class="input-block-level" id="inputUsernameRegister" placeholder="Username">
+                        <input type="text" name="UserName" class="input-block-level" id="inputUsernameRegister" placeholder="Username">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label hidden shown-ie8" for="inputEmailRegister">ایمیل</label>
                     <div class="controls">
-                        <input type="email" class="input-block-level" id="inputEmailRegister" placeholder="Email">
+                        <input type="email" class="input-block-level" id="inputEmailRegister" name="Email" placeholder="Email">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label hidden shown-ie8" for="inputPasswordRegister">رمز عبور</label>
                     <div class="controls">
-                        <input type="password" class="input-block-level" id="inputPasswordRegister" placeholder="Password">
+                        <input type="password" class="input-block-level" id="inputPasswordRegister" name="Password" placeholder="Password">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-danger input-block-level bold higher">

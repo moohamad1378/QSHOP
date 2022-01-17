@@ -28,8 +28,9 @@ namespace Persistence.DataBase
         }
         private void SeedData(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(new IdentityUser {Id="abcd1-abcd2-abcd3-abcd4", UserName = "Admin", NormalizedUserName = "ADMIN", NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM", Email = "Qasemiyan.mostafa@gmail.com", PasswordHash = "Admin" });
-            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string> { RoleId = "4", UserId = "abcd1-abcd2-abcd3-abcd4" });
+            var hasher = new PasswordHasher<IdentityUser>();
+            modelBuilder.Entity<User>().HasData(new IdentityUser {Id= "8e445865-a24d-4543-a6c6-9443d048cdb9", UserName = "Admin", NormalizedUserName = "ADMIN", NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM", Email = "Qasemiyan.mostafa@gmail.com", PasswordHash = hasher.HashPassword( null,"Admin") });
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string> { RoleId = "4", UserId = "8e445865-a24d-4543-a6c6-9443d048cdb9" });
 
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "4", Name = nameof(RolesOfUser.Admin) });
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "5", Name = nameof(RolesOfUser.Operator) });
