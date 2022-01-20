@@ -2,6 +2,7 @@
 using Common;
 using Common.Resutls;
 using Domain.Catalogs;
+using Microsoft.EntityFrameworkCore;
 using Persistence.DataBase;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace Application.Services.Catalogs.CatalogTypss
         ResutlDto<CatalogTypeDto> Edit(CatalogTypeDto CatalogTypeDto);
         ResutlDto<CatalogTypeDto> FindById(int Id);
         List<CatalogTypeListDto> GetList(int? ParentId);
+        List<CatalogTypeListDto> GetListForAdmin();
+
     }
     public class CatalogTypssServices : ICatalogTypssServices
     {
@@ -90,6 +93,23 @@ namespace Application.Services.Catalogs.CatalogTypss
                 return model;
             }
 
+        }
+
+        public List<CatalogTypeListDto> GetListForAdmin()
+        {
+            var types = context.CatalogTypes.Include(p => p.ParentCatalogType)
+                .Include(p => p.ParentCatalogType)
+                .ThenInclude(p => p.ParentCatalogType.ParentCatalogType)
+                .Include(p => p.SubType).
+                Where(p => p.ParentCatalogTypeId == null)
+                .Where(p => p.SubType.Count == 0)
+                .Select(p => new { p.Id, p.Type, p.ParentCatalogType, p.SubType }).ToList()
+                .Select(p => new CatalogTypeListDto
+                {
+                    Id = p.Id,
+                    Type = $"{p?.Type ?? ""}-{p?.ParentCatalogType?.Type ?? ""} - {p?.ParentCatalogType?.Type ?? ""}"
+                }).ToList();
+            return types;
         }
 
         public ResutlDto Remove(int Id)

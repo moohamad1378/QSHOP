@@ -1,0 +1,48 @@
+﻿@model Application.Services.Catalogs.CatalogItems.CreateColorDto
+
+@{
+    ViewData["Title"] = "CreateColor";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>CreateColor</h1>
+
+<h4>CreateColorDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateColor">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">نام</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input type="hidden" asp-for="CatalogItemId" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ساخت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <form >
+            <div  class="text-danger"></div>
+                <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
+                      <fieldset class="form-group">
+                         <label for="basicInput"> رنگ را انتخاب کنید </label>
+                                 <select style="width: 100px;height: 100px;" class="form-control" name="Id" asp-items="@ViewBag?.ColorList"></select>
+                        </fieldset>
+                  </div>
+            <div class="form-group">
+                <input asp-action="DeleteColor" type="submit" value="حذف رنگ انتخاب شته" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

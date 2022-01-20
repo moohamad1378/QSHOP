@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Common.Dtos.UserListDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h5>صفحه کاربران</h5>
+
+<p>
+    <a asp-action="Create">افزودن کاربر جدید</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("تغییر کاربر", "Edit", new {  id=item.Id  }) |
+                @Html.ActionLink("حذف کاربر", "Delete", new {  Id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

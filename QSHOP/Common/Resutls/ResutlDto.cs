@@ -14,7 +14,7 @@ namespace Common.Resutls
     }
     public class ResutlDto
     {
-        public List<string>? Message { get; set; }
+        public string Message { get; set; }
         public bool IsSuccess { get; set; }
     }
 }

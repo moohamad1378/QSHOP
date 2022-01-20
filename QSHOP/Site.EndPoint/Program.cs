@@ -1,3 +1,5 @@
+using Application.Services.Catalogs.CatalogBrands;
+using Application.Services.Catalogs.CatalogItems;
 using Application.Services.Catalogs.CatalogTypss;
 using Domain.Users;
 using Infrastructure.IdentityCustomrErorr;
@@ -14,6 +16,8 @@ ConfigurationManager configuration = builder.Configuration;
 
 #region Injecting
 builder.Services.AddTransient<ICatalogTypssServices, CatalogTypssServices>();
+builder.Services.AddTransient<ICatalogBrandService, CatalogTypeService>();
+builder.Services.AddTransient<ICatalogItemService, CatalogItemService>();
 #endregion
 
 

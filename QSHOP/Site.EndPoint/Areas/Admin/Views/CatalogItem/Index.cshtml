@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Application.Services.Catalogs.CatalogItems.CatalogItemListDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h5>لیست محصولایت</h5>
+
+<p>
+    <a asp-action="Create">یکی بساز</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                نام
+            </th>
+            <th>
+                قیمت
+            </th>
+            <th>
+                موجودی انبار
+            </th>
+            <th>
+                نهایت ظرفیت انبار
+            </th>
+            <th>
+                آیدی یوزری که اینو ساخته
+            </th>
+            <th>
+               افزوردن رنگ 
+            </th>
+            <th>
+                افزوردن متریال
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null)
+        {
+                    @foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableStock)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxStockThreshold)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                <button class="btn btn-warning">
+                @Html.ActionLink("اضافه کردن رنگ",  "CreateColor","CatalogItem", new { Id = item.Id, area = "Admin" })
+                </button>
+            </td>
+             <td>
+                 <button class="btn btn-warning">
+                @Html.ActionLink("اضافه کردن متریال", "CatalogItem", "User", new { Id = item.Id, area = "Admin" })
+                 </button>
+
+            </td>
+            <td>
+                @Html.ActionLink("تغییر", "Edit", new {  Id=item.Id  }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("حذف", "Delete", new {  Id=item.Id  })
+            </td>
+        </tr>
+}
+        }
+
+    </tbody>
+</table>

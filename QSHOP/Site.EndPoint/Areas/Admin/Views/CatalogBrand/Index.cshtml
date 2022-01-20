@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Application.Services.Catalogs.CatalogBrands.CatalogBrandList>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h6>لیست برند ها</h6>
+
+<p>
+    <a asp-action="Create">یکی بساز</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                برند
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null)
+        {
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.ActionLink("تغییر", "Edit", new {  id=item.Id  }) |
+                @Html.ActionLink("حذف", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+        }
+
+}
+    </tbody>
+</table>

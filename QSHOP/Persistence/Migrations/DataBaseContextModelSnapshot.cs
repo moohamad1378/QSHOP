@@ -38,6 +38,70 @@ namespace Persistence.Migrations
                     b.ToTable("CatalogBrands");
                 });
 
+            modelBuilder.Entity("Domain.Catalogs.CatalogItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AvailableStock")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CatalogBrandId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CatalogTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ColorsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DeliveryDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Inset")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MaterialsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaxStockThreshold")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RestockThreshold")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogBrandId");
+
+                    b.HasIndex("CatalogTypeId");
+
+                    b.ToTable("CatalogItems");
+                });
+
             modelBuilder.Entity("Domain.Catalogs.CatalogType", b =>
                 {
                     b.Property<int>("Id")
@@ -57,6 +121,72 @@ namespace Persistence.Migrations
                     b.HasIndex("ParentCatalogTypeId");
 
                     b.ToTable("CatalogTypes");
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.Color", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CatalogItemId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogItemId");
+
+                    b.ToTable("Colors");
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CataLogItemId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Src")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CataLogItemId");
+
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.Material", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CatalogItemId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CatalogItemId");
+
+                    b.ToTable("Materials");
                 });
 
             modelBuilder.Entity("Domain.Users.User", b =>
@@ -128,15 +258,15 @@ namespace Persistence.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d3003c15-0dc2-412b-95b4-1492c99b91aa",
+                            ConcurrencyStamp = "f8bc5d41-b13c-48cb-903c-85053cdd0651",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAENmKTFXm+uL34Ty1x4ooGcr7ZH8/mQY2yJlMeIp5HwPPV7npIqwu5FxGvzq+xaNSzg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELstqgjXaG6Ka8hkb2a9kSPv3kLN0cCoTNGVJh5sWNhlqSb7DfBHI8MvGMvKCdgTcw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "525f2fad-fbab-4354-be1b-7f518cc68040",
+                            SecurityStamp = "84ae8995-c433-4928-a4e0-a7e6fe8e9e16",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -172,19 +302,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "148b3c6b-b3fa-4a66-8788-3071d418d036",
+                            ConcurrencyStamp = "609ddc5f-e3da-41ec-943b-361f1577911c",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "017c556b-c119-4d7b-ae69-3538c99295e6",
+                            ConcurrencyStamp = "1ab22e29-7b75-4558-ab11-0d3c4130db1c",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "69e9cfc7-e8c2-4605-8e52-589e4473f059",
+                            ConcurrencyStamp = "b67ad74d-579b-4e54-91f4-a7ec21f900a9",
                             Name = "Customer"
                         });
                 });
@@ -302,6 +432,25 @@ namespace Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Catalogs.CatalogItem", b =>
+                {
+                    b.HasOne("Domain.Catalogs.CatalogBrand", "CatalogBrand")
+                        .WithMany()
+                        .HasForeignKey("CatalogBrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Catalogs.CatalogType", "CatalogType")
+                        .WithMany()
+                        .HasForeignKey("CatalogTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CatalogBrand");
+
+                    b.Navigation("CatalogType");
+                });
+
             modelBuilder.Entity("Domain.Catalogs.CatalogType", b =>
                 {
                     b.HasOne("Domain.Catalogs.CatalogType", "ParentCatalogType")
@@ -309,6 +458,39 @@ namespace Persistence.Migrations
                         .HasForeignKey("ParentCatalogTypeId");
 
                     b.Navigation("ParentCatalogType");
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.Color", b =>
+                {
+                    b.HasOne("Domain.Catalogs.CatalogItem", "CatalogItem")
+                        .WithMany("Colors")
+                        .HasForeignKey("CatalogItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CatalogItem");
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.Image", b =>
+                {
+                    b.HasOne("Domain.Catalogs.CatalogItem", "CataLogItem")
+                        .WithMany()
+                        .HasForeignKey("CataLogItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CataLogItem");
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.Material", b =>
+                {
+                    b.HasOne("Domain.Catalogs.CatalogItem", "CatalogItem")
+                        .WithMany("Materials")
+                        .HasForeignKey("CatalogItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CatalogItem");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -360,6 +542,13 @@ namespace Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Catalogs.CatalogItem", b =>
+                {
+                    b.Navigation("Colors");
+
+                    b.Navigation("Materials");
                 });
 
             modelBuilder.Entity("Domain.Catalogs.CatalogType", b =>
