@@ -161,6 +161,8 @@ namespace Application.Services.Catalogs.CatalogItems
                 CatalogItemId = createMaterialDto.CatalogItemId,
                 Name = createMaterialDto.Name,
             };
+            _dataBaseContext.Materials.Add(material);
+            _dataBaseContext.SaveChanges();
             return true;
         }
 

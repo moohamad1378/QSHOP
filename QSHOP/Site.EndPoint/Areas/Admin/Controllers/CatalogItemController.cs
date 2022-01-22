@@ -108,5 +108,51 @@ namespace Site.EndPoint.Areas.Admin.Controllers
             _catalogItemService.DeleteColor(Id);
             return RedirectToAction("Index");
         }
+        public EditColorDto EditColorDto { get; set; } = new EditColorDto { };
+        [HttpGet]
+        public IActionResult EditColor(int Id)
+        {
+            EditColorDto.Id = Id;
+            return View(EditColorDto);
+        }
+
+        [HttpPost]
+        public IActionResult EditColor(EditColorDto editColorDto)
+        {
+            _catalogItemService.EditColor(editColorDto);
+            return RedirectToAction("Index");
+        }
+        public CreateMaterialDto CreateMaterialDto { get; set; } = new CreateMaterialDto { };
+        [HttpGet]
+        public IActionResult CreateMaterial(int Id)
+        {
+            CreateMaterialDto.CatalogItemId = Id;
+            ViewBag.ListOfMaterial = new SelectList(_catalogItemService.ListOfMaterial(Id), "Id", "Name");
+            return View(CreateMaterialDto);
+        }
+        [HttpPost]
+        public IActionResult CreateMaterial(CreateMaterialDto createMaterialDto)
+        {
+            var data = _catalogItemService.AddMaterial(createMaterialDto);
+            return RedirectToAction("Index");
+        }
+        public IActionResult DeleteMaterial(int Id)
+        {
+            _catalogItemService.DeleteMateriald(Id);
+            return RedirectToAction("Index");
+        }
+        public EditMaterialDto editmaterialdto { get; set; } = new EditMaterialDto { };
+        [HttpGet]
+        public IActionResult EditMaterial(int Id)
+        {
+            editmaterialdto.Id = Id;
+            return View(editmaterialdto);
+        }
+        [HttpPost]
+        public IActionResult EditMaterial(EditMaterialDto editMaterialDto)
+        {
+            _catalogItemService.EditMateriald(editMaterialDto);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,17 +1,16 @@
-﻿@model Application.Services.Catalogs.CatalogItems.CreateColorDto
+﻿@model Application.Services.Catalogs.CatalogItems.CreateMaterialDto
 
 @{
-    ViewData["Title"] = "CreateColor";
+    ViewData["Title"] = "CreateMaterial";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>CreateColor</h1>
+<h6>َما درحال ساختن متریال برای  محصول هستید</h6>
 
-<h4>CreateColorDto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateColor">
+        <form asp-action="CreateMaterial">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label">نام</label>
@@ -24,7 +23,7 @@
 
             </div>
             <div class="form-group">
-                <input type="submit" value="ساخت" class="btn btn-primary" />
+                <input type="submit" value="ثبت" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -36,14 +35,14 @@
                 <div class="col-xl-4 col-lg-6 col-md-12 mb-1">
                       <fieldset class="form-group">
                          <label for="basicInput"> رنگ را انتخاب کنید </label>
-                                 <select style="width: 150px;height: 100px;" class="form-control" name="Id" asp-items="@ViewBag?.ColorList"></select>
+                                 <select style="width: 150px;height: 100px;" class="form-control" name="Id" asp-items="@ViewBag?.ListOfMaterial"></select>
                         </fieldset>
                   </div>
             <div class="form-group">
-                <input asp-action="DeleteColor" type="submit" value="حذف رنگ انتخاب شته" class="btn btn-primary" />
+                <input asp-action="DeleteMaterial" type="submit" value="حذف متریال انتخاب شته" class="btn btn-primary" />
             </div>
            <div class="form-group">
-                <input asp-action="EditColor" type="submit" value="تغییر نام رنگ  انتخاب  شده" class="btn btn-primary" />
+                <input asp-action="EditMaterial" type="submit" value="تغییر نام متریال  انتخاب  شده" class="btn btn-primary" />
             </div>
         </form>
     </div>
