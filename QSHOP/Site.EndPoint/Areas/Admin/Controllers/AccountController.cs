@@ -13,20 +13,50 @@ namespace Site.EndPoint.Areas.Admin.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly DataBaseContext _context;
-        public AccountController(UserManager<User> userManager,DataBaseContext context)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public AccountController(UserManager<User> userManager,DataBaseContext context,
+            RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _context = context;
+            _roleManager = roleManager;
         }
-        public IActionResult Index()
+        public IActionResult Index(string? roleid)
         {
             var data = _userManager.Users.Select(p => new Common.Dtos.UserListDto
             {
                 Email = p.Email,
                 Id = p.Id,
-                UserName = p.UserName
-            }).ToList();
+                UserName = p.UserName,
+                roleid=roleid
+            })?.ToList();
             return View(data);
+        }
+        public IActionResult adduserrole(string userid, string roleid)
+        {
+
+            var user = _userManager.FindByIdAsync(userid).Result;
+            if (roleid.Contains("4"))
+            {
+                var rols = _userManager.GetUsersInRoleAsync("Admin").Result;
+                if (rols.Any())
+                {
+                    ViewBag.Error = "قبلا کاربری برای این نقش ثبت شده است";
+                    return View();
+                }
+            }
+            var findedrole = _roleManager.FindByIdAsync(roleid).Result;
+            var addrole = _userManager.AddToRoleAsync(user, findedrole.Name).Result;
+            if (addrole.Succeeded)
+            {
+                return RedirectToAction("Success");
+            }
+            else
+            {
+                string message = "مشکلی پیش آمد با برنامه نویس تماس بگیرید";
+                return Json(message);
+            }
+
         }
         public IActionResult Create()
         {
@@ -94,5 +124,28 @@ namespace Site.EndPoint.Areas.Admin.Controllers
             var edit =_userManager.UpdateAsync(find).Result;
             return RedirectToAction("Index");
         }
+        public IActionResult Rols()
+        {
+
+            var rols = _roleManager.Roles
+                .Select(p => new roledto
+                {
+                    Id = p.Id,
+                    Name = p.Name
+                }).ToList();
+
+
+            return View(rols);
+        }
+        public IActionResult Success()
+        {
+
+            return View();
+        }
+    }
+    public class roledto
+    {
+        public string Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,0 +1,31 @@
+﻿@model Application.Services.Catalogs.System.SystemServices.EditSystemDto
+
+@{
+    ViewData["Title"] = "EditSystem";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>EditSystem</h1>
+
+<h4>EditSystemDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditSystem">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+                <input type="hidden" asp-for="Id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label  class="control-label">نام</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="دخیره" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

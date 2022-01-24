@@ -89,6 +89,9 @@ namespace Persistence.Migrations
                     b.Property<int>("RestockThreshold")
                         .HasColumnType("int");
 
+                    b.Property<int>("SystemId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -189,6 +192,23 @@ namespace Persistence.Migrations
                     b.ToTable("Materials");
                 });
 
+            modelBuilder.Entity("Domain.Catalogs.System", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Systems");
+                });
+
             modelBuilder.Entity("Domain.Users.User", b =>
                 {
                     b.Property<string>("Id")
@@ -258,15 +278,15 @@ namespace Persistence.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f8bc5d41-b13c-48cb-903c-85053cdd0651",
+                            ConcurrencyStamp = "783413a1-8601-4938-986c-3274c44b4c8f",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAELstqgjXaG6Ka8hkb2a9kSPv3kLN0cCoTNGVJh5sWNhlqSb7DfBHI8MvGMvKCdgTcw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAKGVi71wEqnMgJ64OOnLr3/eL3ALxG4ftdsfG+gQRQ18TyY7GsTXP8KQ9Kb70ybvw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "84ae8995-c433-4928-a4e0-a7e6fe8e9e16",
+                            SecurityStamp = "b94105c1-f4da-44bc-829a-e23ce893a9ec",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -302,19 +322,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "609ddc5f-e3da-41ec-943b-361f1577911c",
+                            ConcurrencyStamp = "8c94c16e-6d2a-4fe3-8d9f-08ece568f70f",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "1ab22e29-7b75-4558-ab11-0d3c4130db1c",
+                            ConcurrencyStamp = "870a167a-574b-461c-b832-44f5a33cf89c",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "b67ad74d-579b-4e54-91f4-a7ec21f900a9",
+                            ConcurrencyStamp = "fff412e3-4e98-4d80-ab25-1c59bba8c07d",
                             Name = "Customer"
                         });
                 });

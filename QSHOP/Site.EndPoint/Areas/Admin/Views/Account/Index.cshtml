@@ -22,6 +22,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
+            @foreach (var item in Model)
+                {
+                     @if(@item.roleid != null)
+                     {
+                            <th>افزودن نقش</th>
+                     }
+                                
+                }
             <th></th>
         </tr>
     </thead>
@@ -37,6 +45,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
+                                       @if (@item.roleid != null)
+                            {
+                             <td>
+                                <button class="btn btn-warning" >
+                                    @Html.ActionLink("اضافه کردن رل انتخاب شده", "adduserrole", "Account", new { userid = item.Id,roleid=item.roleid, area = "Admin" })
+                                </button>
+                             </td>
+                            }
             <td>
                 @Html.ActionLink("تغییر کاربر", "Edit", new {  id=item.Id  }) |
                 @Html.ActionLink("حذف کاربر", "Delete", new {  Id=item.Id  })

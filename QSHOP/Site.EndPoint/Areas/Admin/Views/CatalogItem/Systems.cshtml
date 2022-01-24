@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Application.Services.Catalogs.System.SystemServices.ListSystemDto>
+
+@{
+    ViewData["Title"] = "Systems";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h6>سیستم ها</h6>
+
+<p>
+    <a asp-action="AddSystem">یکی بساز</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                نام
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("تغییر نام", "EditSystem","CatalogItem", new { id=item.Id}) |
+                @Html.ActionLink("حذف", "DeleteSystem","CatalogItem", new {  id=item.Id  })
+            </td>
+        </tr>
+        }
+
+}
+    </tbody>
+</table>

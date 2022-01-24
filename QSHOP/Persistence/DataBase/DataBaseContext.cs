@@ -24,6 +24,7 @@ namespace Persistence.DataBase
         public DbSet<Color> Colors { get; set; }
         public DbSet<Material> Materials { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<Domain.Catalogs.System> Systems{ get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

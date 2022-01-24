@@ -1,6 +1,7 @@
 ﻿using Application.Services.Catalogs.CatalogBrands;
 using Application.Services.Catalogs.CatalogItems;
 using Application.Services.Catalogs.CatalogTypss;
+using Application.Services.Catalogs.System.SystemServices;
 using Domain.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -19,15 +20,18 @@ namespace Site.EndPoint.Areas.Admin.Controllers
         private readonly ICatalogItemService _catalogItemService;
         private readonly UserManager<User> _userManager;
         private readonly DataBaseContext _context;
+        private readonly ISystemServices _systemServices;
         public CatalogItemController(ICatalogTypssServices catalogTypssServices
             , ICatalogBrandService catalogBrandService, ICatalogItemService catalogItemService
-            , UserManager<User> userManager,DataBaseContext context)
+            , UserManager<User> userManager,DataBaseContext context
+            , ISystemServices systemServices)
         {
             _catalogTypssServices = catalogTypssServices;
             _catalogBrandService = catalogBrandService;
             _catalogItemService = catalogItemService;
             _userManager = userManager;
             _context = context;
+            _systemServices = systemServices;
         }
         public IActionResult Index()
         {
@@ -153,6 +157,43 @@ namespace Site.EndPoint.Areas.Admin.Controllers
         {
             _catalogItemService.EditMateriald(editMaterialDto);
             return RedirectToAction("Index");
+        }
+        public IActionResult Systems()
+        {
+            var data = _systemServices.List();
+            return View(data);
+        }
+        [HttpGet]
+        public IActionResult AddSystem()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddSystem(CreateSystemDto createSystemDto)
+        {
+            var data = _systemServices.Add(createSystemDto);
+            return RedirectToAction("Systems");
+        }
+        [HttpGet]
+        public IActionResult DeleteSystem(int Id)
+        {
+            var data = _systemServices.Delete(Id);
+            return RedirectToAction("Systems");
+        }
+
+        public EditSystemDto EditSystemDto { get; set; } = new EditSystemDto { };
+        [HttpGet]
+        public IActionResult EditSystem(int Id)
+        {
+            EditSystemDto.Id = Id;
+            return View(EditSystemDto);
+        }
+        [HttpPost]
+        public IActionResult EditSystem(EditSystemDto editSystemDto)
+        {
+            var data = _systemServices.Edit(editSystemDto);
+            return RedirectToAction("Systems");
         }
     }
 }

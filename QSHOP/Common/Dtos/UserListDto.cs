@@ -14,5 +14,6 @@ namespace Common.Dtos
         public string UserName { get; set; }
         [Display(Name ="ایمیل")]
         public string Email { get; set; }
+        public string roleid { get; set; }
     }
 }

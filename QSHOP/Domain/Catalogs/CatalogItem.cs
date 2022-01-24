@@ -23,5 +23,6 @@
         public int ColorsId { get; set; }
         public ICollection<Material> Materials { get; set; }
         public int MaterialsId { get; set; }
+        public int SystemId { get; set; }
     }
 }
