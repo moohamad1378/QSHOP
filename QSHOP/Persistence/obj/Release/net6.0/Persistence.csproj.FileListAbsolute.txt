@@ -1,0 +1,17 @@
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\Persistence.deps.json
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\Persistence.dll
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\ref\Persistence.dll
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\Persistence.pdb
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\Common.dll
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\Domain.dll
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\Common.pdb
+F:\QSHOP\QSHOP\Persistence\bin\Release\net6.0\Domain.pdb
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.csproj.AssemblyReference.cache
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.AssemblyInfoInputs.cache
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.AssemblyInfo.cs
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.csproj.CoreCompileInputs.cache
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.csproj.CopyComplete
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.dll
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\ref\Persistence.dll
+F:\QSHOP\QSHOP\Persistence\obj\Release\net6.0\Persistence.pdb

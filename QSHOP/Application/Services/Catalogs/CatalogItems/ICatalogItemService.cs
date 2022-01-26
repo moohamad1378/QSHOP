@@ -2,6 +2,7 @@
 using Domain.Catalogs;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Persistence.DataBase;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Application.Services.Catalogs.CatalogItems
         List<CatalogItemListDto> ListForAdmin();
         bool Delete(int Id);
         bool Edit(EditCatalogItemDto editCatalogItemDto);
+
         //
         bool AddColor(CreateColorDto createColorDto);
         List<ColorListDto> ListOfColor(int Id);
@@ -53,6 +55,9 @@ namespace Application.Services.Catalogs.CatalogItems
                 RestockThreshold = catalogItemCreadeDto.RestockThreshold,
                 UserId = catalogItemCreadeDto.UserId,
                 Detail=catalogItemCreadeDto.Detail,
+                Size = catalogItemCreadeDto.Size,
+                MaterialsId=catalogItemCreadeDto.MaterialsId,
+                Slug=catalogItemCreadeDto.Slug,
             };
             _dataBaseContext.CatalogItems.Add(catalogItem);
             _dataBaseContext.SaveChanges();
@@ -101,7 +106,8 @@ namespace Application.Services.Catalogs.CatalogItems
 
         public List<CatalogItemListDto> ListForAdmin()
         {
-            var data = _dataBaseContext.CatalogItems.Select(p => new CatalogItemListDto
+            var data = _dataBaseContext.CatalogItems
+                .Include(p=>p.Images).Select(p => new CatalogItemListDto
             {
                 Name = p.Name,
                 AvailableStock = p.AvailableStock,
@@ -109,7 +115,8 @@ namespace Application.Services.Catalogs.CatalogItems
                 Id = p.Id,
                 Price = p.Price,
                 UserId = p.UserId,
-                RestockThreshold = p.RestockThreshold
+                RestockThreshold = p.RestockThreshold,
+                ImageSrc=p.Images.FirstOrDefault().Src
             }).ToList();
             return data;
         }
@@ -245,6 +252,7 @@ namespace Application.Services.Catalogs.CatalogItems
         public int RestockThreshold { get; set; }
         public int MaxStockThreshold { get; set; }
         public string UserId { get; set; }
+        public string ImageSrc { get; set; }
     }
     public class CatalogItemCreadeDto
     {
@@ -260,6 +268,10 @@ namespace Application.Services.Catalogs.CatalogItems
         public int RestockThreshold { get; set; }
         public int MaxStockThreshold { get; set; }
         public string? UserId { get; set; }
+        public Size Size { get; set; }
+        public int MaterialsId { get; set; }
+        public int SystemId { get; set; }
+        public string Slug { get; set; }
     }
     public class EditCatalogItemDto
     {

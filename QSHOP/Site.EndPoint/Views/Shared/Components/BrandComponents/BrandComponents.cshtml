@@ -1,0 +1,20 @@
+﻿@using Application.Services.Catalogs.CatalogBrands
+@model List<CatalogBrandList>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+                            <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterFour">برند <b class="caret"></b></a>
+                            </div>
+                            <div id="filterFour" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <a href="#" data-target="german" data-type="brand" class="selectable detailed"><i class="box"></i> @item.Brand</a>
+ 
+                                </div>
+                            </div>
+                        </div>
+
+}

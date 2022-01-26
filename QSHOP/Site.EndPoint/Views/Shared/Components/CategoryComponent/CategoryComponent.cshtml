@@ -1,0 +1,53 @@
+﻿@using Application.Services.Catalogs.CatalogTypss
+@model List<CatalogTypeListDto>
+@{
+    Layout = null;
+}
+
+
+                        
+                        <!--  ==========  -->
+                        <!--  = Sidebar Title =  -->
+                        <!--  ==========  -->
+
+                        <!--  ==========  -->
+                        <!--  = Categories =  -->
+                        <!--  ==========  -->
+                        @foreach (var item in Model)
+                        {
+                                                    <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#filterOne">دسته بندی ها <b class="caret"></b></a>
+                            </div>
+                            <div id="filterOne" class="accordion-body collapse in">
+                                <div class="accordion-inner">
+                                    <a href="#" data-target=".filter--motor" class="selectable"><i class="box"></i> @item.Type </a>
+ 
+                                </div>
+                            </div>
+                        </div>
+                        }
+ <!-- /categories -->
+                        
+                        <!--  ==========  -->
+                        <!--  = Prices slider =  -->
+                        <!--  ==========  --
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#filterPrices">قیمت <b class="caret"></b></a>
+                            </div>
+                            <div id="filterPrices" class="accordion-body in collapse">
+                                <div class="accordion-inner with-slider">
+                                    <div class="jqueryui-slider-container">
+                                        <div id="pricesRange"></div>
+                                    </div>
+                                    <input type="text" data-initial="432" class="max-val span1 pull-right" disabled />
+                                    <input type="text" data-initial="99" class="min-val span1" disabled />
+                                </div>
+                            </div>
+                        </div> !-- /prices slider -->
+                        
+                        <!--  ==========  -->
+                        <!--  = Size filter =  -->
+                        <!--  ==========  -->
+                        

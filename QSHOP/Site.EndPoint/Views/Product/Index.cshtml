@@ -1,0 +1,159 @@
+﻿@using Application.Services.Catalogs.CatalogItems
+@model List<CatalogItemListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+        <div class="push-up">
+            <div class="row">
+                
+                <!--  ==========  -->
+                <!--  = Sidebar =  -->
+                <!--  ==========  -->
+                <aside class="span3 left-sidebar">
+                    <div class="sidebar-item sidebar-filters" id="sidebarFilters">
+                        
+                        <!--  ==========  -->
+                        <!--  = Sidebar Title =  -->
+                        <!--  ==========  -->
+                        <div class="underlined">
+                        	<h3><span class="light">بر اساس فیلتر</span> خرید کنید</h3>
+                        </div>
+                        
+                        <!--  ==========  -->
+                        <!--  = Categories =  -->
+                        <!--  ==========  -->
+@await Component.InvokeAsync("CategoryComponent")
+                        <!-- /categories -->
+                        
+                        <!--  ==========  -->
+                        <!--  = Prices slider =  -->
+                        <!--  ==========  --
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle" data-toggle="collapse" href="#filterPrices">قیمت <b class="caret"></b></a>
+                            </div>
+                            <div id="filterPrices" class="accordion-body in collapse">
+                                <div class="accordion-inner with-slider">
+                                    <div class="jqueryui-slider-container">
+                                        <div id="pricesRange"></div>
+                                    </div>
+                                    <input type="text" data-initial="432" class="max-val span1 pull-right" disabled />
+                                    <input type="text" data-initial="99" class="min-val span1" disabled />
+                                </div>
+                            </div>
+                        </div> !-- /prices slider -->
+                        
+                        <!--  ==========  -->
+                        <!--  = Size filter =  -->
+                        <!--  ==========  -->
+                        <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterTwo">سایز <b class="caret"></b></a>
+                            </div>
+                            <div id="filterTwo" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <a href="#" data-target="max" data-type="size" class="selectable detailed"><i class="box"></i> بزرگ</a>
+                                     <a href="#" data-target="6" data-type="size" class="selectable detailed"><i class="box"></i>متوسط</a>
+                                     <a href="#" data-target="8" data-type="size" class="selectable detailed"><i class="box"></i>کوچک</a>
+ 
+                                </div>
+                            </div>
+                        </div> <!-- /size filter -->
+                        
+                        <!--  ==========  -->
+                        <!--  = system filter =  -->
+                        <!--  ==========  -->
+@await Component.InvokeAsync("SystemComponents") <!-- /system filter -->
+                        
+                        <!--  ==========  -->
+                        <!--  = Brand filter =  -->
+                        <!--  ==========  -->
+@await Component.InvokeAsync("BrandComponents") <!-- /brand filter -->
+                        
+                        <a href="#" class="remove-filter" id="removeFilters" style="display: none;"><span class="icon-ban-circle"></span> حذف همه فیلتر ها</a>
+                        
+                    </div>
+                </aside> <!-- /sidebar -->
+                
+                <!--  ==========  -->
+                <!--  = Main content =  -->
+                <!--  ==========  -->
+                <section class="span9 blocks-spacer">
+                    
+                    <!--  ==========  -->
+                    <!--  = Title =  -->
+                    <!--  ==========  -->
+                    <div class="underlined push-down-20">
+                        <div class="row">
+                            <div class="span5">
+                                <h3><span class="light">جستجو:</span> "قطعات"</h3>
+                            </div>
+                            <div class="span4">
+                                <div class="form-inline sorting-by">
+                                    <label for="isotopeSorting" class="black-clr">چینش:</label>
+                                    <select id="isotopeSorting" class="span3">
+                                        <option value="{&quot;sortBy&quot;:&quot;price&quot;, &quot;sortAscending&quot;:&quot;true&quot;}">بر اساس قیمت (کم به زیاد) ↑</option>
+                                        <option value="{&quot;sortBy&quot;:&quot;price&quot;, &quot;sortAscending&quot;:&quot;false&quot;}">بر اساس قیمت (زیاد به کم) ↓</option>
+                                        <option value="{&quot;sortBy&quot;:&quot;name&quot;, &quot;sortAscending&quot;:&quot;true&quot;}">بر اساس نام (صعودی) ↑</option>
+                                        <option value="{&quot;sortBy&quot;:&quot;name&quot;, &quot;sortAscending&quot;:&quot;false&quot;}">بر اساس نام (نزولی) ↓</option>
+                                        <option value="{&quot;sortBy&quot;:&quot;popularity&quot;, &quot;sortAscending&quot;:&quot;true&quot;}">بر اساس محبوبیت (کم به زیاد) ↑</option>
+                                        <option value="{&quot;sortBy&quot;:&quot;popularity&quot;, &quot;sortAscending&quot;:&quot;false&quot;}">بر اساس محبوبیت (زیاد به کم) ↓</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- /title -->
+                    
+                    <!--  ==========  -->
+                    <!--  = Products =  -->
+                    <!--  ==========  -->
+                    <div class="row popup-products">
+                        <div id="isotopeContainer" class="isotope-container isotope" style="position: relative; overflow: hidden; height: 3784px;">
+                    	    
+                    	    
+                    	     
+                	        <!--  ==========  -->
+                            <!--  = Single Product =  -->
+                            <!--  ==========  -->
+                            @foreach (var item in Model)
+                            {
+                              <div class="span3 filter--ryl isotope-item" data-price="100" data-popularity="5" data-size="16|10" data-brand="italia" style="position: absolute; left: 0px; top: 0px; transform: translate3d(600px, 424px, 0px);">
+                    	        <div class="product">
+                    	             
+                    	            <div class="product-img">
+                    	                <div class="picture">
+                    	                    <img width="540" height="374" alt="" src="@item.ImageSrc">
+                    	                    <div class="img-overlay">
+                    	                        <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                    	                    </div>
+                    	                </div>
+                    	            </div>
+                    	            <div class="main-titles no-margin">
+                    	                <h4 class="title">@item.Price.ToString("n0")</h4>
+                    	                <h5 class="no-margin isotope--title">@item.Name</h5>
+                    	            </div>
+                                    <p class="desc">سطح 1 کیفیت</p>
+                    	            <p class="center-align stars">
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                <span class="icon-star stars-clr"></span>
+                    	                 
+                    	            </p>
+                    	        </div>
+                    	    </div>
+                            }
+                    	     
+                    	    
+                    	</div>
+                	</div>
+                	<hr>
+                </section> <!-- /main content -->
+            </div>
+        </div>
+    </div>
+

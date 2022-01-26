@@ -107,7 +107,7 @@ namespace Application.Services.Catalogs.CatalogTypss
                 .Select(p => new CatalogTypeListDto
                 {
                     Id = p.Id,
-                    Type = $"{p?.Type ?? ""}-{p?.ParentCatalogType?.Type ?? ""} - {p?.ParentCatalogType?.Type ?? ""}"
+                    Type = $"{p?.Type ?? ""}"
                 }).ToList();
             return types;
         }

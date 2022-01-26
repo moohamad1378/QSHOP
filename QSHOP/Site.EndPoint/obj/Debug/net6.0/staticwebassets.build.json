@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "X8bH/mF1pPy1evLNnd/aYEzRBkqFYZmZpyIeyn5Lnb0=",
+  "Hash": "2JWZmrr11Kfb9+YGw/dn4Ky1Orhw9bLO89Jbg2CosLk=",
   "Source": "Site.EndPoint",
   "BasePath": "_content/Site.EndPoint",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Item\\Picture\\637783257919851443photo_2020-11-20_22-03-09.jpg"
+    },
+    {
+      "Identity": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\images\\Item\\Picture\\637787224652882611photo_2020-11-20_22-03-09.jpg",
+      "SourceId": "Site.EndPoint",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\",
+      "BasePath": "_content/Site.EndPoint",
+      "RelativePath": "images/Item/Picture/637787224652882611photo_2020-11-20_22-03-09.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Item\\Picture\\637787224652882611photo_2020-11-20_22-03-09.jpg"
     },
     {
       "Identity": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\js\\site.js",

@@ -9,4 +9,3 @@ F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.csproj.CoreCompileInputs.cache
 F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.dll
 F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\ref\Common.dll
 F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.pdb
-F:\QSHOP\QSHOP\Common\obj\Debug\net6.0\Common.csproj.AssemblyReference.cache

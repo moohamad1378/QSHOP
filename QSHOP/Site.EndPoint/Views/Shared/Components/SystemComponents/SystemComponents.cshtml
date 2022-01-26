@@ -1,0 +1,20 @@
+﻿@using Application.Services.Catalogs.System.SystemServices
+@model List<ListSystemDto>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+                            <div class="accordion-group">
+                            <div class="accordion-heading">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterThree">سیستم <b class="caret"></b></a>
+                            </div>
+                            <div id="filterThree" class="accordion-body collapse">
+                                <div class="accordion-inner">
+                                    <a href="#" data-target="gearbox" data-type="system" class="selectable detailed"><i class="box"></i> @item.Name</a>
+ 
+                                </div>
+                            </div>
+                        </div>
+}

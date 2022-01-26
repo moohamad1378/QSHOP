@@ -40,8 +40,9 @@ namespace Site.EndPoint.Areas.Admin.Controllers
         }
         public IActionResult Create(int? Id)
         {
-            ViewBag.catalogtype = new SelectList(_catalogTypssServices.GetListForAdmin(), "Id", "Type");
-            ViewBag.catalogbrand = new SelectList(_catalogBrandService.List(), "Id", "Brand");
+            ViewBag.catalogtype = new SelectList(_catalogTypssServices?.GetListForAdmin(), "Id", "Type");
+            ViewBag.catalogbrand = new SelectList(_catalogBrandService?.List(), "Id", "Brand");
+            ViewBag.Systems = new SelectList(_systemServices?.List(), "Id", "Name");
             return View();
         }
         [HttpPost]
