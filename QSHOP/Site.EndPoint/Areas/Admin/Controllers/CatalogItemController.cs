@@ -33,9 +33,9 @@ namespace Site.EndPoint.Areas.Admin.Controllers
             _context = context;
             _systemServices = systemServices;
         }
-        public IActionResult Index()
+        public IActionResult Index(CatlogPLPRequestDto catlogPLPRequestDto)
         {
-            var data = _catalogItemService.ListForAdmin();
+            var data = _catalogItemService.ListForAdmin(catlogPLPRequestDto);
             return View(data);
         }
         public IActionResult Create(int? Id)

@@ -2,19 +2,44 @@
 @model List<ListSystemDto>
 @{
     Layout = null;
+    var SystemId = Context.Request.Query["SystemId"];
 }
 
-@foreach (var item in Model)
-{
+
                             <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterThree">سیستم <b class="caret"></b></a>
                             </div>
-                            <div id="filterThree" class="accordion-body collapse">
-                                <div class="accordion-inner">
-                                    <a href="#" data-target="gearbox" data-type="system" class="selectable detailed"><i class="box"></i> @item.Name</a>
+                            <form id="filterThree" class="accordion-body collapse">
+                                @foreach (var item in Model)
+                                {
+                                @if (SystemId.ToList().Any(p => p == item.Id.ToString()))
+                                {
+                            
+                                <label class="container-checkbox">
+                                    @item.Name
+                                    <input type="checkbox" checked name="SystemId" value="@item.Id" onclick="submit();">
+                                    <span class="checkmark"></span>
+                                      </label>
  
-                                </div>
-                            </div>
+                             
+                                }
+                                else
+                                {
+                            
+                                <label class="container-checkbox">
+                                    @item.Name
+                                    <input type="checkbox" name="SystemId" value="@item.Id" onclick="submit();">
+                                    <span class="checkmark"></span>
+                                      </label>
+ 
+                                
+                                }
+                                }
+        @foreach (var queryString in Context.Request.Query.Where(p => p.Key != "SystemId").ToList())
+        {
+            <input type="hidden" name="@queryString.Key" value="@queryString.Value" />
+        }
+                            </form>
                         </div>
-}
+

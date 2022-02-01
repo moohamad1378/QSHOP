@@ -9,13 +9,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
+using Common.Resutls;
+using Application.Dto;
 
 namespace Application.Services.Catalogs.CatalogItems
 {
     public interface ICatalogItemService
     {
         int AddCatalogItem(CatalogItemCreadeDto catalogItemCreadeDto);
-        List<CatalogItemListDto> ListForAdmin();
+        PaginatedItemsDto<CatalogItemListDto> ListForAdmin(CatlogPLPRequestDto request);
         bool Delete(int Id);
         bool Edit(EditCatalogItemDto editCatalogItemDto);
 
@@ -104,21 +107,92 @@ namespace Application.Services.Catalogs.CatalogItems
             return true;
         }
 
-        public List<CatalogItemListDto> ListForAdmin()
+        public PaginatedItemsDto<CatalogItemListDto> ListForAdmin(CatlogPLPRequestDto request)
         {
-            var data = _dataBaseContext.CatalogItems
-                .Include(p=>p.Images).Select(p => new CatalogItemListDto
+            int rowcount = 0;
+            var query = _dataBaseContext.CatalogItems
+                .Include(p => p.Images)
+                .OrderByDescending(p => p.Id)
+                .Where(p=>p.AvailableStock >0)
+                .AsQueryable();
+
+            if (request.brandId != null)
             {
-                Name = p.Name,
-                AvailableStock = p.AvailableStock,
-                MaxStockThreshold = p.MaxStockThreshold,
+                query = query.Where(p => request.brandId.Any(b => b == p.CatalogBrandId));
+            }
+
+            if (request.CatalogTypeId != null)
+            {
+                query = query.Where(p => p.CatalogTypeId == request.CatalogTypeId);
+            }
+            if (request.SystemId != null)
+            {
+                query = query.Where(p => request.SystemId.Any(b => b == p.SystemId));
+            }
+
+            if (!string.IsNullOrEmpty(request.SearchKey))
+            {
+                query = query.Where(p => p.Name.Contains(request.SearchKey)
+                || p.Description.Contains(request.SearchKey));
+            }
+
+            if (request.AvailableStock == true)
+            {
+                query = query.Where(p => p.AvailableStock > 0);
+            }
+
+            if (request.SortType == SortType.newest)
+            {
+                query = query
+                    .OrderByDescending(p => p.Id);
+            }
+
+            if (request.SortType == SortType.cheapest)
+            {
+                query = query
+                    .OrderBy(p => p.Price);
+            }
+
+            if (request.SortType == SortType.mostExpensive)
+            {
+                query = query
+                    .OrderByDescending(p => p.Price);
+            }
+
+            if (request.Size != null && request.Size !=Size.Non)
+            {
+                query = query.Where(p => p.Size == request.Size);
+            }
+
+
+            var data = query.PagedResult(request.page, request.pageSize=10, out rowcount)
+                .ToList()
+                .Select(p => new CatalogItemListDto
+                {
                 Id = p.Id,
+                Name = p.Name,
                 Price = p.Price,
-                UserId = p.UserId,
-                RestockThreshold = p.RestockThreshold,
-                ImageSrc=p.Images.FirstOrDefault().Src
-            }).ToList();
-            return data;
+                ImageSrc = p.Images.FirstOrDefault().Src,
+                AvailableStock = p.AvailableStock,
+                Slug=p.Slug
+                })?.ToList();
+            return new PaginatedItemsDto<CatalogItemListDto>(request.page, request.pageSize, rowcount, data);
+
+
+
+            //        var data = _dataBaseContext.CatalogItems
+            //.Include(p => p.Images)
+            //.OrderByDescending(p => p.Id).Select(p => new CatalogItemListDto
+            //{
+            //    Name = p.Name,
+            //    AvailableStock = p.AvailableStock,
+            //    MaxStockThreshold = p.MaxStockThreshold,
+            //    Id = p.Id,
+            //    Price = p.Price,
+            //    UserId = p.UserId,
+            //    RestockThreshold = p.RestockThreshold,
+            //    ImageSrc = p.Images.FirstOrDefault().Src
+            //}).ToList();
         }
         #region Color
         public bool AddColor(CreateColorDto createColorDto)
@@ -242,17 +316,50 @@ namespace Application.Services.Catalogs.CatalogItems
 
 
     }
+    public class CatlogPLPRequestDto
+    {
+        public int page { get; set; } = 1;
+        public int pageSize { get; set; } = 2;
+        public int? CatalogTypeId { get; set; }
+        public int[] brandId { get; set; }
+        public int[] SystemId { get; set; }
+        public bool AvailableStock { get; set; }
+        public string SearchKey { get; set; }
+        public Size Size { get; set; }
+        public SortType SortType { get; set; }
+    }
+    public enum SortType
+    {
+        /// <summary>
+        /// بدونه مرتب سازی
+        /// </summary>
+        None = 0,
+        /// <summary>
+        ///  ‌جدیدترین
+        /// </summary>
+        newest = 4,
+        /// <summary>
+        /// ارزان‌ترین
+        /// </summary>
+        cheapest = 5,
+        /// <summary>
+        /// گران‌ترین
+        /// </summary>
+        mostExpensive = 6,
+    }
     #region catalogItem
     public class CatalogItemListDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Slug { get; set; }
         public int Price { get; set; }
         public int AvailableStock { get; set; }
         public int RestockThreshold { get; set; }
         public int MaxStockThreshold { get; set; }
         public string UserId { get; set; }
         public string ImageSrc { get; set; }
+
     }
     public class CatalogItemCreadeDto
     {

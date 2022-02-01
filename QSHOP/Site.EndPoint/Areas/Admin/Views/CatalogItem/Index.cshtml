@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Application.Services.Catalogs.CatalogItems.CatalogItemListDto>
+﻿@using Application.Services.Catalogs.CatalogItems
+@using Application.Dto
+@using Common.Resutls
+@model PaginatedItemsDto<CatalogItemListDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -40,7 +43,7 @@
     <tbody>
         @if(Model != null)
         {
-                    @foreach (var item in Model) {
+                    @foreach (var item in Model.Data) {
         <tr>
 
             <td>

@@ -2,6 +2,7 @@
 @model List<CatalogTypeListDto>
 @{
     Layout = null;
+    var CatalogTypeId = Context.Request.Query["CatalogTypeId"];
 }
 
 
@@ -13,20 +14,43 @@
                         <!--  ==========  -->
                         <!--  = Categories =  -->
                         <!--  ==========  -->
-                        @foreach (var item in Model)
-                        {
+
                                                     <div class="accordion-group">
                             <div class="accordion-heading">
                                 <a class="accordion-toggle" data-toggle="collapse" href="#filterOne">دسته بندی ها <b class="caret"></b></a>
                             </div>
                             <div id="filterOne" class="accordion-body collapse in">
-                                <div class="accordion-inner">
-                                    <a href="#" data-target=".filter--motor" class="selectable"><i class="box"></i> @item.Type </a>
+                                @foreach (var item in Model)
+                                {
+                                @if (CatalogTypeId.ToList().Any(p => p == item.Id.ToString()))
+                                {
+                            <form class="accordion-inner">
+                                   @* <a  href="~/Product/Index/@item.Id" data-target=".filter--motor" class="selectable"><i class="box"></i> @item.Type </a>*@
+                                <label class="container-checkbox">
+                                    @item.Type
+                                    <input type="checkbox" checked name="CatalogTypeId" value="@item.Id" onclick="submit();">
+                                    <span class="checkmark"></span>
+                                      </label>
  
-                                </div>
+                             </form>
+                                }
+                                else
+                                {
+                            <form class="accordion-inner">
+                                   @* <a  href="~/Product/Index/@item.Id" data-target=".filter--motor" class="selectable"><i class="box"></i> @item.Type </a>*@
+                                <label class="container-checkbox">
+                                    @item.Type
+                                    <input type="checkbox" name="CatalogTypeId" value="@item.Id" onclick="submit();">
+                                    <span class="checkmark"></span>
+                                      </label>
+ 
+                                </form>
+                                }
+
+                                }
                             </div>
                         </div>
-                        }
+                        
  <!-- /categories -->
                         
                         <!--  ==========  -->

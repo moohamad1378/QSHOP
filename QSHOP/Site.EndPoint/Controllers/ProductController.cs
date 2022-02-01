@@ -10,9 +10,9 @@ namespace Site.EndPoint.Controllers
         {
             _catalogItemService = catalogItemService;
         }
-        public IActionResult Index()
+        public IActionResult Index(CatlogPLPRequestDto catlogPLPRequestDto)
         {
-            var data = _catalogItemService.ListForAdmin();
+            var data = _catalogItemService.ListForAdmin( catlogPLPRequestDto);
             return View(data);
         }
 

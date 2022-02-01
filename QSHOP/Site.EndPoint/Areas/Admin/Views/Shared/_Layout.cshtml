@@ -60,8 +60,7 @@
                             <div class="media mx-auto">
                                 <img src="~/Theme/assets/img/90x90.jpg" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
-                                    <h5>ایمان پاکروح</h5>
-                                    <p>مدیر پروژه</p>
+
                                 </div>
                             </div>
                         </div>
@@ -125,7 +124,7 @@
                         <a href="#submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
-                                <span> منو 2</span>
+                                <span>کاربران</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
@@ -133,41 +132,61 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
                             <li>
-                                <a href="javascript:void(0);"> زیرمنو 1 </a>
+                                <a href="~/admin/account/Rols">نقش ها  </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);"> زیرمنو 2 </a>
+                                <a href="~/admin/account">کاربران </a>
                             </li>
                         </ul>
                     </li>
 
                     <li class="menu">
-                        <a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <a href="#submenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                             <div class="">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                                <span> منو 3</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                                <span>برند</span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </div>
                         </a>
-                        <ul class="collapse submenu list-unstyled" id="submenu2" data-parent="#accordionExample">
+                        <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
                             <li>
-                                <a href="javascript:void(0);"> زیرمنو 1 </a>
+                                <a href="~/admin/CatalogBrand"> برند ها</a>
                             </li>
+                        </ul>
+                    </li>
+
+                   <li class="menu">
+                        <a href="#submenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                                <span>فروشگاه</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
                             <li>
-                                <a href="#sm2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> زیرمنو 2 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="collapse list-unstyled sub-submenu" id="sm2" data-parent="#submenu2">
-                                    <li>
-                                        <a href="javascript:void(0);"> زیر زیرمنو 1 </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"> زیر زیرمنو 2 </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"> زیر زیرمنو 3 </a>
-                                    </li>
-                                </ul>
+                                <a href="~/admin/CatalogItem">محصولات</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                   <li class="menu">
+                        <a href="#submenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                            <div class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg>
+                                <span>دسته بندی</span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                        </a>
+                        <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
+                            <li>
+                                <a href="~/admin/CatalogType">دسته بندی ها</a>
                             </li>
                         </ul>
                     </li>

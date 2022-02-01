@@ -32,11 +32,14 @@ namespace Domain.Catalogs
     }
     public enum Size
     {
+        [Display(Name = "این را انتخاب نکنید")]
+        Non =0,
+
         [Display(Name ="کوچک")]
-        Small =0,
+        Small =1,
         [Display(Name = "متوسط")]
-        average =1,
+        average =2,
         [Display(Name = "بزرگ")]
-        large =2
+        large =3
     }
 }

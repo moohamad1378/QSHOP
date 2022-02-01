@@ -92,6 +92,10 @@ namespace Persistence.Migrations
                     b.Property<int>("Size")
                         .HasColumnType("int");
 
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("SystemId")
                         .HasColumnType("int");
 
@@ -281,15 +285,15 @@ namespace Persistence.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1ed92728-1125-4944-aeae-0e5aa2cf6418",
+                            ConcurrencyStamp = "d314b851-425b-4d84-8e25-a40248d9fbf8",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFXp3gBziXBDIsid1EaCIydlsa59RFeXxRImYYKEYLoYK0wmTFbGvaVQJxKpWnN7Ww==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGkBvdGuD9gNH98XQaP2TbAS8Wvh8xRbsBkp7fMPRpn8GCijpiiozv9sLZuHZnyBlw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2198e869-39f6-4f06-bec3-be2bb3c77bda",
+                            SecurityStamp = "54880564-9940-403f-8543-01fb144a44ac",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -325,19 +329,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "0096cfc3-5374-4852-b613-72e8b849c01d",
+                            ConcurrencyStamp = "2a69b3da-1d2d-4923-b631-e11cd2b0576b",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "aca4be99-44a4-4635-802f-17528653dbd4",
+                            ConcurrencyStamp = "1ea94fcf-ccb1-4488-90b4-90000014a6bc",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "f72dfa89-3bbc-40a2-acb0-0cdad339b53a",
+                            ConcurrencyStamp = "8f636743-ae00-4e4b-bd0b-db42f1f4ce0f",
                             Name = "Customer"
                         });
                 });
@@ -497,7 +501,7 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Catalogs.Image", b =>
                 {
                     b.HasOne("Domain.Catalogs.CatalogItem", "CataLogItem")
-                        .WithMany()
+                        .WithMany("Images")
                         .HasForeignKey("CataLogItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -570,6 +574,8 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Catalogs.CatalogItem", b =>
                 {
                     b.Navigation("Colors");
+
+                    b.Navigation("Images");
 
                     b.Navigation("Materials");
                 });
