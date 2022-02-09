@@ -1,0 +1,149 @@
+﻿@model Application.Services.Catalogs.CatalogItems.DetailProductDto
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="push-up top-equal blocks-spacer">
+            
+            <!--  ==========  -->
+            <!--  = Product =  -->
+            <!--  ==========  -->
+            <div class="row blocks-spacer">
+                
+                <!--  ==========  -->
+                <!--  = Preview Images =  -->
+                <!--  ==========  -->
+                <div class="span5">
+                    <div class="product-preview">
+                        <div class="picture">
+                            <img src="~/@Model.Src.FirstOrDefault().ImageSrc" alt="" width="940" height="940" id="expandedImg">
+                        </div>
+
+                        <div class="thumbs clearfix">
+                          @foreach (var item in Model.Src)
+                        {
+                            <div class="thumb">
+                                <a ><img src="~/@item.ImageSrc" alt="" width="940" height="940" onclick="myFunction(this);"></a>
+                            </div>
+                        }
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <!--  ==========  -->
+                <!--  = Title and short desc =  -->
+                <!--  ==========  -->
+                <div class="span7">
+                    <div class="product-title">
+                        <h1 class="name">@Model.Name</h1>
+                        <div class="meta">
+                            <span class="tag">@Model.Price.ToString("n0") تومان</span>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <p>@Model.Description</p>
+                        <hr>
+                        
+                        <!--  ==========  -->
+                        <!--  = Add to cart form =  -->
+                        <!--  ==========  -->
+                        <form asp-action="Index" asp-controller="Basket" method="post" class="form form-inline clearfix">
+                            <select required name="ColorId" class="span2">
+                                <option value="-1" selected disabled>انتخاب رنگ</option>
+                                @foreach (var item in Model.DetailColorDtos)
+                                {
+                                <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            
+
+                            &nbsp;
+                            <select required name="MaterialId" class="span2">
+                                <option selected disabled>انتخاب متریال</option>
+                                @foreach (var item in Model.DetailMaterialDtos)
+                                {
+                                <option  value="@item.Id">@item.Name</option>
+                                }
+
+                            </select>
+                            <input type="hidden" value="@Model.Id"  name="CatalogItemId"/>
+                            <button type="submit" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>
+                        </form>
+                        
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            
+            <!--  ==========  -->
+            <!--  = Tabs with more info =  -->
+            <!--  ==========  -->
+            <div class="row">
+                <div class="span12">
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab-1" data-toggle="tab">جزئیات</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#tab-3" data-toggle="tab">نظرات</a>
+                        </li>
+                        <li>
+                            <a href="#tab-4" data-toggle="tab">جزئیات ارسال</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="fade in tab-pane active" id="tab-1">
+                            <h3>توضیحات محصول</h3>
+                            <p>@Model.Description</p>
+                            
+                        </div>
+                       
+                        <div class="fade tab-pane" id="tab-3">
+                            <p>
+                                نظری ثبت نشده است.
+                            </p>
+                        </div>
+                        <div class="fade tab-pane" id="tab-4">
+                            <p>@Model.DeliveryDetail
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <script type="text/javascript">
+
+
+                function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+
+  expandImg.parentElement.style.display = "block";
+}
+
+                //function ChangePhoto123( ImageSrc) {
+                //    console.log(ImageSrc);
+                //    const  xcv= document.getElementById('aabc');
+
+                //    xcv.src=ImageSrc;
+                //    //document.getElementById('aabc').removeAttribute("src");
+                //    //document.getElementById('aabc').set("src",ImageSrc);
+                //    //console("logs")
+                //    //document.getElementById('aabc').src = ImageSrc;
+                //}
+            </script>
+    </body>
+</html>

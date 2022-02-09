@@ -21,6 +21,7 @@ namespace Application.Services.Catalogs.CatalogItems
         PaginatedItemsDto<CatalogItemListDto> ListForAdmin(CatlogPLPRequestDto request);
         bool Delete(int Id);
         bool Edit(EditCatalogItemDto editCatalogItemDto);
+        DetailProductDto Detail(int Id,string Slug);
 
         //
         bool AddColor(CreateColorDto createColorDto);
@@ -61,6 +62,7 @@ namespace Application.Services.Catalogs.CatalogItems
                 Size = catalogItemCreadeDto.Size,
                 MaterialsId=catalogItemCreadeDto.MaterialsId,
                 Slug=catalogItemCreadeDto.Slug,
+                SystemId=catalogItemCreadeDto.SystemId,
             };
             _dataBaseContext.CatalogItems.Add(catalogItem);
             _dataBaseContext.SaveChanges();
@@ -314,7 +316,46 @@ namespace Application.Services.Catalogs.CatalogItems
 
         }
 
+        public DetailProductDto Detail(int Id, string Slug)
+        {
+            
+            var data = _dataBaseContext.CatalogItems
+                .Include(p=>p.Images)
+                .Include(p=>p.Materials)
+                .Include(p=>p.Colors)
+                .SingleOrDefault(p => p.Id == Id);
+            var system = _dataBaseContext.Systems.SingleOrDefault(p => p.Id == data.SystemId);
+            DetailProductDto dto = new DetailProductDto
+            {
+                Id = Id,
+                AvailableStock = data.AvailableStock,
+                DeliveryDetail = data.DeliveryDetail,
+                Description = data.Description,
+                Detail = data.Detail,
+                Name = data.Name,
+                Price = data.Price,
+                Size = data.Size,
+                Systemname = system.Name,
 
+                Src = data.Images.Select(p => new Images
+                {
+                    Id = p.Id,
+                    ImageSrc = p.Src
+                }).ToList(),
+                DetailColorDtos = data.Colors.Select(p => new DetailColorDto
+                {
+                    Id = p.Id,
+                    Name = p.Name
+                }).ToList(),
+                DetailMaterialDtos = data.Materials.Select(p => new DetailMaterialDto
+                {
+                    Id = p.Id,
+                    Name = p.Name
+                }).ToList(),
+
+            };
+            return dto;
+        }
     }
     public class CatlogPLPRequestDto
     {
@@ -379,6 +420,42 @@ namespace Application.Services.Catalogs.CatalogItems
         public int MaterialsId { get; set; }
         public int SystemId { get; set; }
         public string Slug { get; set; }
+    }
+    public class DetailProductDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Detail { get; set; }
+        public string DeliveryDetail { get; set; }
+        public int Price { get; set; }
+        public int CatalogTypeId { get; set; }
+        public List<Images> Src { get; set; }
+        public List<DetailMaterialDto> DetailMaterialDtos { get; set; }
+        public List<DetailColorDto> DetailColorDtos{ get; set; }
+        public int CatalogBrandId { get; set; }
+        public int AvailableStock { get; set; }
+        public int RestockThreshold { get; set; }
+        public int MaxStockThreshold { get; set; }
+        public Size Size { get; set; }
+        public int MaterialsId { get; set; }
+        public string Systemname { get; set; }
+        public string Slug { get; set; }
+    }
+    public class Images
+    {
+        public int Id { get; set; }
+        public string ImageSrc { get; set; }
+    }
+    public class DetailMaterialDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+    public class DetailColorDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
     public class EditCatalogItemDto
     {

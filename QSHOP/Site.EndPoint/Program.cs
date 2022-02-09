@@ -1,3 +1,4 @@
+using Application.Services.Baskets;
 using Application.Services.Catalogs.CatalogBrands;
 using Application.Services.Catalogs.CatalogItems;
 using Application.Services.Catalogs.CatalogTypss;
@@ -20,6 +21,7 @@ builder.Services.AddTransient<ICatalogTypssServices, CatalogTypssServices>();
 builder.Services.AddTransient<ICatalogBrandService, CatalogTypeService>();
 builder.Services.AddTransient<ICatalogItemService, CatalogItemService>();
 builder.Services.AddTransient<ISystemServices, SystemServices>();
+builder.Services.AddTransient<IBasketService, BasketService>();
 #endregion
 
 

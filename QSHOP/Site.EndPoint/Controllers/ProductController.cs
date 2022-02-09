@@ -15,6 +15,10 @@ namespace Site.EndPoint.Controllers
             var data = _catalogItemService.ListForAdmin( catlogPLPRequestDto);
             return View(data);
         }
-
+        public IActionResult Detail(int Id, string Slug)
+        {
+            var data=_catalogItemService.Detail(Id,Slug);
+            return View(data);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.DataBase;
 
@@ -11,9 +12,10 @@ using Persistence.DataBase;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220208205534_add_Basket_add_BasketItem")]
+    partial class add_Basket_add_BasketItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,12 +53,6 @@ namespace Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("CatalogItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ColorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaterialId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -337,15 +333,15 @@ namespace Persistence.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fa588a8d-088f-4768-9b17-0278abcfeeba",
+                            ConcurrencyStamp = "a9a4d849-e2e7-4984-bfd3-416e725db350",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMTRbvUgR/WeeCs0OqoxBgxagnlCyp0n4KRi5FjFhsGkyBhKx+FmjFnopn+bSEF8mQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEB8TZIF1nrpE7Zypj+X0aAcGX0oQfzXJwVhTlJ/giiSHsZhNnR939c9Ui7U1MY+shQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b796e060-2879-4c86-bbe6-c3e7382f7f11",
+                            SecurityStamp = "be25740f-b302-414e-86ec-2ad26892c77a",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -381,19 +377,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "a367622d-5a5f-40fb-887f-02abb8d9d169",
+                            ConcurrencyStamp = "11656442-8966-4be2-98ec-b78626d20b33",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "2f368eac-7772-450a-8f19-c91bc44e091f",
+                            ConcurrencyStamp = "e2543b10-49a6-4ab3-8532-2eadbcba7601",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "2384cade-9d46-46b0-9882-83089eba9c9e",
+                            ConcurrencyStamp = "d1e45c97-d764-4603-9a42-dc257846a194",
                             Name = "Customer"
                         });
                 });
