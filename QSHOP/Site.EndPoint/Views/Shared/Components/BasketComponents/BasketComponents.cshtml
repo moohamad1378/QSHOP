@@ -1,0 +1,62 @@
+﻿@using Application.Services.Baskets
+@model BasketDto
+@{
+
+    Layout = null;
+}
+            <div class="span3">
+                <div class="cart-container" id="cartContainer">
+                    <div class="cart">
+                        <p class="items">سبد خرید <span class="dark-clr">(@Model.Items.Count())</span></p>
+                        <p class="dark-clr hidden-tablet">ریال @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0") </p>
+                        <a href="checkout-step-1.html" class="btn btn-danger">
+                            <!-- <span class="icon icons-cart"></span> -->
+                            <i class="icon-shopping-cart"></i>
+                        </a>  
+                    </div>
+                    <div class="open-panel">
+            @if(Model != null)
+            {
+                            @foreach (var item in Model.Items)
+                         {
+                         <div class="item-in-cart clearfix">
+                            <div class="image">
+                                <img src="~/@item.IMageUrl" width="124" height="124" alt="cart item" />
+                            </div>
+                            <div class="desc">
+                                <strong><a href="product.html"> @item.CatalogName</a></strong>
+                                <span class="light-clr qty">
+                                    تعداد : @item.Quantity
+                                    &nbsp;
+                                    <a href="~/Basket/Delete/@item.CatalogItemId" class="icon-remove-sign" title="Remove Item"></a>
+                                </span>
+                            </div>
+                            <div class="price">
+                                           @{var price = (item.UnitPrice * item.Quantity);
+
+                                                    
+                                                }
+                                <strong>ریال @price</strong>
+                            </div>
+                        </div>
+                         }
+            }
+
+
+                         
+                        <div class="summary">
+                            <div class="line">
+                                <div class="row-fluid">
+                                    <div class="span6">جمع کل :</div>
+                                    <div class="span6 align-right size-16">ریال @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proceed">
+                            <a href="~/Basket" class="btn btn-danger pull-right bold higher">تصویه حساب <i class="icon-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+
+

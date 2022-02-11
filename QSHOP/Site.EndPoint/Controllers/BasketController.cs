@@ -25,9 +25,20 @@ namespace Site.EndPoint.Controllers
         public IActionResult Index(int CatalogItemId, int ColorId, int MaterialId, int Quantity = 1)
         {
             var Basket=GetOrSetBasket();
-            _basketService.AddItemToBasket(Basket.Id, CatalogItemId, Quantity, ColorId, MaterialId);
+            _basketService.AddItemToBasket(Basket.Id, CatalogItemId, ColorId,  MaterialId, Quantity);
             return RedirectToAction("Index");
         }
+        public IActionResult Delete(int CatalogItemId)
+        {
+            _basketService.DeleteBasketItem(CatalogItemId);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult SetQuantity(int basketitemid ,int quantity)
+        {
+            return Json(_basketService.SetQuantity(basketitemid, quantity));
+        }
+
         private BasketDto GetOrSetBasket()
         {
             if (_signInManager.IsSignedIn(User))

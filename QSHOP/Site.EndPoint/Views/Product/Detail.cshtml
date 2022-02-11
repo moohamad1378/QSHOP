@@ -56,7 +56,7 @@
                         <!--  = Add to cart form =  -->
                         <!--  ==========  -->
                         <form asp-action="Index" asp-controller="Basket" method="post" class="form form-inline clearfix">
-                            <select required name="ColorId" class="span2">
+                            <select  name="ColorId" class="span2">
                                 <option value="-1" selected disabled>انتخاب رنگ</option>
                                 @foreach (var item in Model.DetailColorDtos)
                                 {
@@ -66,7 +66,7 @@
                             
 
                             &nbsp;
-                            <select required name="MaterialId" class="span2">
+                            <select  name="MaterialId" class="span2">
                                 <option selected disabled>انتخاب متریال</option>
                                 @foreach (var item in Model.DetailMaterialDtos)
                                 {

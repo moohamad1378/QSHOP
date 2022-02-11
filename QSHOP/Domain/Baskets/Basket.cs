@@ -13,7 +13,7 @@ namespace Domain.Baskets
         public ICollection<BasketItem> Items { get; set; }=new List<BasketItem>();
         public string BuyerId { get; set; }
         
-        public void AddItem(int catalogitemId,int Quantity,int UnitPrice,int ColorId,int MaterialId)
+        public void AddItem(int catalogitemId,int MaterialId ,int UnitPrice,int ColorId, int Quantity)
         {
             var check= Items?.FirstOrDefault(p => p.CatalogItemId == catalogitemId);
             if (check==null)
@@ -44,6 +44,11 @@ namespace Domain.Baskets
         public void AddQuantity(int quantity)
         {
             Quantity += quantity;
+        }
+        public void SetQuantity(int quantity)
+        {
+
+            Quantity = quantity;
         }
     }
 }

@@ -115,6 +115,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Basket/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -125,6 +129,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/BasketComponents/BasketComponents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQmFza2V0Q29tcG9uZW50c1xCYXNrZXRDb21wb25lbnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/BrandComponents/BrandComponents.cshtml]

@@ -337,15 +337,15 @@ namespace Persistence.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fa588a8d-088f-4768-9b17-0278abcfeeba",
+                            ConcurrencyStamp = "11130f35-031d-4b63-9bf7-301702bd368b",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMTRbvUgR/WeeCs0OqoxBgxagnlCyp0n4KRi5FjFhsGkyBhKx+FmjFnopn+bSEF8mQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAM1hQTzofpZw+G0H8spdjYw37kI6kvsK7rqiV3f19T7wPuZWFElEVeIRSUwXmvK+A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b796e060-2879-4c86-bbe6-c3e7382f7f11",
+                            SecurityStamp = "49339e4e-b9f5-443a-b20c-efb2deddd25e",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -381,19 +381,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "a367622d-5a5f-40fb-887f-02abb8d9d169",
+                            ConcurrencyStamp = "a7490f91-1d3f-4424-81a1-3e955762e22f",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "2f368eac-7772-450a-8f19-c91bc44e091f",
+                            ConcurrencyStamp = "c143aa52-189f-4148-9cf0-cd55508dad0b",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "2384cade-9d46-46b0-9882-83089eba9c9e",
+                            ConcurrencyStamp = "794d281a-b8bd-4620-9388-9c7a207d0fad",
                             Name = "Customer"
                         });
                 });

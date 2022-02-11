@@ -1,0 +1,201 @@
+﻿@using Application.Services.Baskets
+@model BasketDto;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+  <head>
+          <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- font-awesome -->
+     <link rel="stylesheet" href="~/Theme1/Theme/assets/css/font-awesome.min.css">
+    <!-- Bootstrap 4.5.3 -->
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/bootstrap/css/bootstrap.min.css">
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/plugins/apexcharts.css">
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/plugins/jquery.classycountdown.min.css">
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/plugins/nouislider.min.css">
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/plugins/select2.min.css">
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/plugins/swiper.min.css">
+    <!-- CSS Template -->
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/theme.css">
+    <!-- Here goes your custom.css -->
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/custom.css">
+    <!-- colors: amber,blue,brown,cyan,default,green,indigo,orange,pink,purple,red,teal,yellow -->
+    <link rel="stylesheet" href="~/Theme1/Theme/assets/css/colors/default.css" id="colorswitch">
+  </head>
+
+   
+  <body>
+      <div class="container">
+    <div class="row mb-4">
+        <div class="col-xl-9 col-lg-8 col-md-8 mb-md-0 mb-3">
+            <div class="checkout-section shadow-around">
+                <div class="checkout-step">
+                    <ul>
+                        <li class="active"><span>سبد خرید</span></li>
+                        <li>
+                            <span>نحوه ارسال و پرداخت</span>
+                        </li>
+                        <li>
+                            <span>اتمام خرید و ارسال</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="checkout-section-content">
+                    <div class="cart-items">
+
+                        @foreach (var item in Model.Items)
+                        {
+                            <div class="cart-item py-4 px-3">
+                                <div class="item-thumbnail">
+                                    <a href="#">
+                                        <img src="@item.IMageUrl" alt="item">
+                                    </a>
+                                </div>
+                                <div class="item-info flex-grow-1">
+                                    <div class="item-title">
+                                        <h2>
+                                            <a href="~/Product/Detail/@item.CatalogItemId">
+                                                @item.CatalogName
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <div class="item-detail">
+                                        <ul>
+
+                                            <li>
+                                                <i class="far fa-shield-check text-muted"></i>
+                                                <span>رنگ - @item.ColorName  </span>
+                                            </li>
+                                            <li>
+                                                <i class="far fa-clipboard-check text-primary"></i>
+                                                <span>متریال - @item.MaterialName  </span>
+                                            </li>
+                                        </ul>
+                                        <div class="item-quantity--item-price">
+                                            <div class="item-quantity">
+                                                <div class="num-block">
+                                                    <div class="num-in">
+                                                        <span class="plus"></span>
+                                                        <input type="text" class="in-num" onchange="SetQuantity('@item.Id')" id="quantity-@item.Id" value="@item.Quantity" readonly="">
+                                                        <span class="minus dis"></span>
+                                                    </div>
+                                                </div>
+                                                <form method="post" asp-action="Delete">
+                                                    <input name="CatalogItemId" type="hidden" value="@item.Id" />
+
+                                                    <button type="submit" class="item-remove-btn mr-3">
+                                                        <i class="far fa-trash-alt"></i>
+                                                        حذف
+                                                    </button>
+                                                   <a href="~/Home/Index" class="mr-3">
+                                                        <i class=""></i>
+                                                        بازگشت به خانه
+                                                    </a>
+                                                </form>
+                                            </div>
+                                            <div class="item-price">
+                                                @{var price = (item.UnitPrice * item.Quantity);
+
+                                                    <text> <p>@price.ToString("n0")</p></text>
+                                                }
+                                                <span class="text-sm mr-1">تومان</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-4">
+            <div class="shadow-around pt-3">
+                <div class="d-flex justify-content-between px-3 py-2">
+                    <span class="text-muted">قیمت کالاها (@Model.Items.Count)</span>
+                    <span class="text-muted">
+                        @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")
+                        <span class="text-sm">تومان</span>
+                    </span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between px-3 py-2">
+                    <span class="font-weight-bold">جمع</span>
+                    <span class="font-weight-bold">
+                        @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")
+                        <span class="text-sm">تومان</span>
+                    </span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between px-3 py-2">
+                    <span class="font-weight-bold">مبلغ قابل پرداخت</span>
+                    <span class="font-weight-bold">
+                        @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")
+                        <span class="text-sm">تومان</span>
+                    </span>
+                </div>
+                <div class="d-flex px-3 py-4">
+                    <a href="#" class="btn btn-danger btn-block py-2">ادامه فرایند خرید</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="~/Theme1/Theme/assets/js/jquery-3.5.1.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/popper.min.js"></script>
+    <script src="~/Theme1/Theme/assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- JS Implementing Plugins -->
+    <script src="~/Theme1/Theme/assets/js/plugins/apexcharts.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/jquery.ez-plus.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/jquery.knob.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/jquery.throttle.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/jquery.classycountdown.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/jquery.nicescroll.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/nouislider.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/select2.full.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/swiper.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/ResizeSensor.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/theia-sticky-sidebar.min.js"></script>
+    <script src="~/Theme1/Theme/assets/js/plugins/wNumb.js"></script>
+    <!-- JS Template -->
+    <script src="~/Theme1/Theme/assets/js/theme.js"></script>
+    <!-- Here goes your custom.js -->
+    <script src="~/Theme1/Theme/assets/js/custom.js"></script>
+
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/SignalROnlineVisitorService.js"></script>
+
+
+
+
+
+
+<script>
+    function SetQuantity(itemId) {
+        var quantity = $("#quantity-"+itemId).val();
+        $.ajax({
+            type: "POST",
+            url: "/basket/setquantity?basketItemId=" + itemId + "&&quantity=" + quantity,
+            success: function () {
+                location.reload();
+            }
+        })
+    }
+</script>
+
+  </body>
+</html>
+
+    
+    
