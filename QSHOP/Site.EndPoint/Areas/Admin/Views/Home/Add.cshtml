@@ -1,0 +1,54 @@
+﻿@model Application.Services.HomeServices.Sliders.AddSliderDto
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h6>افزودن اسلایدر</h6>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">نام</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameTage1" class="control-label">جمله اول</label>
+                <input asp-for="NameTage1" class="form-control" />
+                <span asp-validation-for="NameTage1" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="NameTage2" class="control-label">جمله دوم</label>
+                <input asp-for="NameTage2" class="form-control" />
+                <span asp-validation-for="NameTage2" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="NameTage3" class="control-label">جمله سوم</label>
+                <input asp-for="NameTage3" class="form-control" />
+                <span asp-validation-for="NameTage3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link" class="control-label">لینک مورد نظر</label>
+                <input asp-for="Link" class="form-control" />
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link" class="control-label"> عکس مورد نظر</label>
+                <input name="File" type="file" accept="image/*" class="form-control" />
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ساخت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index"> برگشت به لیست </a>
+</div>
+

@@ -1,0 +1,41 @@
+﻿@using Application.Services.HomeServices.Sliders
+@model List<ListSliderDto>;
+@{
+    Layout = null;
+}
+
+            <ul>
+                @foreach (var item in Model)
+                {
+                <li data-transition="premium-random" data-slotamount="3">
+                    <img src="~/@item.ImageSrc" alt="slider img" width="1400" height="377" />
+                    <div class="caption lfl big_theme"
+                        data-x="120" 
+                        data-y="120"
+                        data-speed="1000" 
+                        data-start="500" 
+                        data-easing="easeInOutBack">@item.NameTage1 </div>
+                    
+                    <div class="caption lfl small_theme"
+                        data-x="120" 
+                        data-y="190"
+                        data-speed="1000" 
+                        data-start="700" 
+                        data-easing="easeInOutBack">
+                        @item.NameTage2
+                    </div>
+                    
+                    <a href="@item.Link" class="caption lfl btn btn-primary btn_theme"
+                        data-x="120" 
+                        data-y="260"
+                        data-speed="1000" 
+                        data-start="900" 
+                        data-easing="easeInOutBack">
+                        @item.NameTage3
+                    </a>
+                </li>
+                }
+
+            </ul>
+            <div class="tp-bannertimer"></div>
+

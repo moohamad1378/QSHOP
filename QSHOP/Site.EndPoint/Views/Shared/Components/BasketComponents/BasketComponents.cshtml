@@ -7,8 +7,8 @@
             <div class="span3">
                 <div class="cart-container" id="cartContainer">
                     <div class="cart">
-                        <p class="items">سبد خرید <span class="dark-clr">(@Model.Items.Count())</span></p>
-                        <p class="dark-clr hidden-tablet">ریال @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0") </p>
+                        <p class="items">سبد خرید <span class="dark-clr">(@Model?.Items?.Count())</span></p>
+                        <p class="dark-clr hidden-tablet">ریال @Model?.Items?.Sum(p => p.UnitPrice * p.Quantity).ToString("n0") </p>
                         <a href="checkout-step-1.html" class="btn btn-danger">
                             <!-- <span class="icon icons-cart"></span> -->
                             <i class="icon-shopping-cart"></i>
@@ -48,7 +48,7 @@
                             <div class="line">
                                 <div class="row-fluid">
                                     <div class="span6">جمع کل :</div>
-                                    <div class="span6 align-right size-16">ریال @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")</div>
+                                    <div class="span6 align-right size-16">ریال @Model?.Items?.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")</div>
                                 </div>
                             </div>
                         </div>

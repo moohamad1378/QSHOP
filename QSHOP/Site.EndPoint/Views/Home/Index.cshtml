@@ -3,5 +3,849 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <!--  ==========  -->
+    <!--  = Slider Revolution =  -->
+    <!--  ==========  -->
+     <div class="fullwidthbanner-container">
+        <div class="fullwidthbanner">
+                @await Component.InvokeAsync("SliderComponents")
+        </div>
+        <!--  ==========  -->
+        <!--  = Nav Arrows =  -->
+        <!--  ==========  -->
+        <div id="sliderRevLeft"><i class="icon-chevron-left"></i></div>
+        <div id="sliderRevRight"><i class="icon-chevron-right"></i></div>
+    </div>
+<!-- /slider revolution -->
 
-<form ></form>
+    <!--  ==========  -->
+    <!--  = Main container =  -->
+    <!--  ==========  -->
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="push-up over-slider blocks-spacer">
+                    
+                    <!--  ==========  -->
+                    <!--  = Three Banners =  -->
+                    <!--  ==========  -->
+                    <div class="row">
+                        <div class="span4">
+                            <a href="#" class="btn btn-block banner">
+                                <span class="title"><span class="light">فروش</span> تابستانی</span>
+                                <em>تخفیف 20% برای خدمات نصب</em>
+                            </a>
+                        </div>
+                        <div class="span4">
+                            <a href="#" class="btn btn-block colored banner">
+                                <span class="title"><span class="light">ارسال</span>  رایگان قطعات</span>
+                                <em>برای خریداران موتورهای Sassi</em>
+                            </a>
+                        </div>
+                        <div class="span4">
+                            <a href="#" class="btn btn-block banner">
+                                <span class="title"><span class="light">محصولات</span> جدید</span>
+                                <em>از محصولات جدید دیدن کنید.</em>
+                            </a>
+                        </div>
+                    </div> <!-- /three banners -->
+                </div>
+            </div>
+        </div>
+        
+        <!--  ==========  -->
+        <!--  = Featured Items =  -->
+        <!--  ==========  -->
+        <div class="row featured-items blocks-spacer">
+            <div class="span12">
+                
+                <!--  ==========  -->
+                <!--  = Title =  -->
+                <!--  ==========  -->
+            	<div class="main-titles lined">
+            	    <h2 class="title"><span class="light">محصولات</span> ویژه</h2>
+            	    <div class="arrows">
+                        <a href="#" class="icon-chevron-right" id="featuredItemsRight"></a>
+                        <a href="#" class="icon-chevron-left" id="featuredItemsLeft"></a>
+                    </div>
+            	</div>
+            </div>
+            
+            <div class="span12">
+                <!--  ==========  -->
+                <!--  = Carousel =  -->
+                <!--  ==========  -->
+                <div class="carouFredSel" data-autoplay="false" data-nav="featuredItems">
+                    <div class="slide">
+                        <div class="row">
+                    	 
+                    	 
+                    	
+                    	 
+                	            	
+    	            	<!--  ==========  -->
+    					<!--  = Product =  -->
+    					<!--  ==========  -->
+    	            	<div class="span4">
+    	            	    <div class="product">
+    	            	        <div class="product-img featured">
+    	            	            <div class="picture">
+    	            	        	    <img src="images/dummy/featured-products/featured-1.png" alt="" width="518" height="358" />
+    	            	        		<div class="img-overlay">
+    	            	        		    <a href="product.html" class="btn more btn-primary">توضیحات بیشتر</a>
+    	            	        		    <a href="shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+    	            	        		</div>
+    	            	            </div>
+    	            	        </div>
+    	            	        <div class="main-titles">
+    	            	            <h4 class="title">400 میلیون ریال</h4>
+    	            	            <h5 class="no-margin">محصول ویژه 652</h5>
+    	            	        </div>
+    	            	        <p class="desc">پکیج گیرلس و گیربکس موتور آکیش ترکیه سطح 1 کیفیت</p>
+    	            	        <p class="center-align stars">
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	             
+                    	        </p>
+    	            	    </div>
+                	      </div> <!-- /product -->
+    	            	 
+                    	 
+                    	
+                    	 
+                	            	
+    	            	<!--  ==========  -->
+    					<!--  = Product =  -->
+    					<!--  ==========  -->
+    	            	<div class="span4">
+    	            	    <div class="product">
+    	            	        <div class="product-img featured">
+    	            	            <div class="picture">
+    	            	        	    <img src="images/dummy/featured-products/featured-2.png" alt="" width="518" height="358" />
+    	            	        		<div class="img-overlay">
+    	            	        		    <a href="product2.html" class="btn more btn-primary">توضیحات بیشتر</a>
+    	            	        		    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+    	            	        		</div>
+    	            	            </div>
+    	            	        </div>
+    	            	        <div class="main-titles">
+    	            	            <h4 class="title">300 میلین ریال </h4>
+    	            	            <h5 class="no-margin">محصول ویژه 735</h5>
+    	            	        </div>
+    	            	        <p class="desc">پکیج موتور بهران گیربکس محصول ایران سطح 1 کیفیت</p>
+    	            	        <p class="center-align stars">
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star"></span>
+                    	            <span class="icon-star"></span>
+                    	            <span class="icon-star"></span>
+                    	            <span class="icon-star"></span>
+                    	             
+                    	        </p>
+    	            	    </div>
+                	      </div> <!-- /product -->
+    	            	 
+                    	 
+                    	
+                    	 
+                	            	
+    	            	<!--  ==========  -->
+    					<!--  = Product =  -->
+    					<!--  ==========  -->
+    	            	<div class="span4">
+    	            	    <div class="product">
+    	            	        <div class="product-img featured">
+    	            	            <div class="picture">
+    	            	        	    <img src="images/dummy/featured-products/featured-3.png" alt="" width="518" height="358" />
+    	            	        		<div class="img-overlay">
+    	            	        		    <a href="product3.html" class="btn more btn-primary">توضیحات بیشتر</a>
+    	            	        		    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+    	            	        		</div>
+    	            	            </div>
+    	            	        </div>
+    	            	        <div class="main-titles">
+    	            	            <h4 class="title">1000 میلیون ریال</h4>
+    	            	            <h5 class="no-margin">محصول ویژه 387</h5>
+    	            	        </div>
+    	            	        <p class="desc">پکیج موتور ساسی اسپانیا گیرلس و گیربکس سطح 1 کیفیت</p>
+    	            	        <p class="center-align stars">
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star"></span>
+                    	             
+                    	        </p>
+    	            	    </div>
+                	      </div> <!-- /product -->
+    	            	 
+                    	 
+                    	
+                    	 
+            	        </div>
+            	    </div>
+            	    <div class="slide">
+            	        <div class="row">
+                    	 
+                	            	
+    	            	<!--  ==========  -->
+    					<!--  = Product =  -->
+    					<!--  ==========  -->
+    	            	<div class="span4">
+    	            	    <div class="product">
+    	            	        <div class="product-img featured">
+    	            	            <div class="picture">
+    	            	        	    <img src="images/dummy/featured-products/featured-1.png" alt="" width="518" height="358" />
+    	            	        		<div class="img-overlay">
+    	            	        		    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+    	            	        		    <a href="#" class="btn buy btn-danger">خرید</a>
+    	            	        		</div>
+    	            	            </div>
+    	            	        </div>
+    	            	        <div class="main-titles">
+    	            	            <h4 class="title">$41</h4>
+    	            	            <h5 class="no-margin">محصول ویژه 515</h5>
+    	            	        </div>
+    	            	        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+    	            	        <p class="center-align stars">
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	             
+                    	        </p>
+    	            	    </div>
+                	      </div> <!-- /product -->
+    	            	 
+                    	 
+                    	
+                    	 
+                	            	
+    	            	<!--  ==========  -->
+    					<!--  = Product =  -->
+    					<!--  ==========  -->
+    	            	<div class="span4">
+    	            	    <div class="product">
+    	            	        <div class="product-img featured">
+    	            	            <div class="picture">
+    	            	        	    <img src="images/dummy/featured-products/featured-2.png" alt="" width="518" height="358" />
+    	            	        		<div class="img-overlay">
+    	            	        		    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+    	            	        		    <a href="#" class="btn buy btn-danger">خرید</a>
+    	            	        		</div>
+    	            	            </div>
+    	            	        </div>
+    	            	        <div class="main-titles">
+    	            	            <h4 class="title">$107</h4>
+    	            	            <h5 class="no-margin">محصول ویژه 690</h5>
+    	            	        </div>
+    	            	        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+    	            	        <p class="center-align stars">
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star"></span>
+                    	            <span class="icon-star"></span>
+                    	            <span class="icon-star"></span>
+                    	             
+                    	        </p>
+    	            	    </div>
+                	      </div> <!-- /product -->
+    	            	 
+                    	 
+                    	
+                    	 
+                	            	
+    	            	<!--  ==========  -->
+    					<!--  = Product =  -->
+    					<!--  ==========  -->
+    	            	<div class="span4">
+    	            	    <div class="product">
+    	            	        <div class="product-img featured">
+    	            	            <div class="picture">
+    	            	        	    <img src="images/dummy/featured-products/featured-3.png" alt="" width="518" height="358" />
+    	            	        		<div class="img-overlay">
+    	            	        		    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+    	            	        		    <a href="#" class="btn buy btn-danger">خرید</a>
+    	            	        		</div>
+    	            	            </div>
+    	            	        </div>
+    	            	        <div class="main-titles">
+    	            	            <h4 class="title">$61</h4>
+    	            	            <h5 class="no-margin">محصول ویژه 405</h5>
+    	            	        </div>
+    	            	        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+    	            	        <p class="center-align stars">
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star stars-clr"></span>
+                    	            <span class="icon-star"></span>
+                    	            <span class="icon-star"></span>
+                    	             
+                    	        </p>
+    	            	    </div>
+                	      </div> <!-- /product -->
+    	            	    	            	</div> 
+                	</div>
+                </div> <!-- /carousel -->
+            </div>
+            
+        </div>
+    </div> <!-- /container -->
+    
+    <!--  ==========  -->
+    <!--  = New Products =  -->
+    <!--  ==========  -->
+    <div class="boxed-area blocks-spacer">
+        <div class="container">
+            
+            <!--  ==========  -->
+            <!--  = Title =  -->
+            <!--  ==========  -->
+            <div class="row">
+                <div class="span12">
+                    <div class="main-titles lined">
+                    	<h2 class="title"><span class="light">محصولات</span> جدید فروشگاه</h2>
+                    </div>
+                </div>
+            </div> <!-- /title -->
+            
+            <div class="row popup-products blocks-spacer">
+                  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-6.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-danger">افزودن به سبد خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">15000 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 434</h5>
+                        </div>
+                        <p class="desc">پکیج گیرلس زیمنس محصول آلمان با تمام قطعات و تماما وارداتی</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	 
+            	  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-7.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="shop-select.html" class="btn buy btn-danger">اانتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">1200 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 414</h5>
+                        </div>
+                        <p class="desc">پکیج موتور زیلابگ آلمان گیرلس سطح 1 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	 
+            	  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-12.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="shop-select.html" class="btn buy btn-danger">اانتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">400 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 450</h5>
+                        </div>
+                        <p class="desc">پکیج گیرلس و گیربکس موتور اکر ترکیه سطح 1 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	 
+            	  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-9.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="shop-select.html" class="btn buy btn-danger">اانتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">600 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 186</h5>
+                        </div>
+                        <p class="desc">پکیج موتور گیرلس سیتور چین سطح 1 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	<div class="clearfix"></div> 
+            	  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-10.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">500 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 258</h5>
+                        </div>
+                        <p class="desc">پکیج موتور ایتال محصول کشور ایتالیا سطح 3 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	 
+            	  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-11.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">900 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 128</h5>
+                        </div>
+                        <p class="desc">پکیج موتور البرتو ساسی ایتالیا سطح 1 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	 
+            	  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-8.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">600 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 156</h5>
+                        </div>
+                        <p class="desc">پکیج موتور گیرلس سیکور ایتالیا سطح 2 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	 
+            	  
+                 
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->   
+            	<div class="span3">
+            	    <div class="product">
+            	        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/products/product-13.png" alt="" width="540" height="374" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">700 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 218</h5>
+                        </div>
+                        <p class="desc">پکیج گیربکس موتور مونتاناری ایتالیا سطح 2 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+            	    </div>
+            	</div> <!-- /product -->
+            	
+            	 
+            	 
+            </div>
+        </div>
+    </div> <!-- /new products -->
+    
+    <!--  ==========  -->
+    <!--  = Most Popular products =  -->
+    <!--  ==========  -->
+    <div class="most-popular blocks-spacer">
+    	<div class="container">
+    	    
+    	    <!--  ==========  -->
+			<!--  = Title =  -->
+			<!--  ==========  -->
+    	    <div class="row">
+    	    	<div class="span12">
+    	    	    <div class="main-titles lined">
+    	                <h2 class="title"><span class="light">محبوبترین</span>محصولات فروشگاه</h2>
+    	            </div>
+    	    	</div>
+    	    </div> <!-- /title -->
+    	    
+	    	<div class="row popup-products">
+	    	     
+	    	     
+	    	            
+		        <!--  ==========  -->
+				<!--  = Product =  -->
+				<!--  ==========  -->
+                <div class="span3">
+                    <div class="product">
+                        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/most-popular-products/popular-1.png" alt="" width="540" height="412" />
+                                <div class="img-overlay">
+                                    <a href="product.html" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">400 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 456</h5>
+                        </div>
+                        <p class="desc">پکیج موتور آکیش گیرلس و گیربکس محصول کشور ترکیه سطح 1 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+                    </div>
+                </div> <!-- /product -->
+                 
+	    	     
+	    	            
+		        <!--  ==========  -->
+				<!--  = Product =  -->
+				<!--  ==========  -->
+                <div class="span3">
+                    <div class="product">
+                        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/most-popular-products/popular-2.png" alt="" width="540" height="412" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-danger">افزودن به سبد خرید</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">15000 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 280</h5>
+                        </div>
+                        <p class="desc">پکیج گیرلس زیمنس تمام قطعات بصورت یکجا تماما وارداتی</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+                    </div>
+                </div> <!-- /product -->
+                 
+	    	     
+	    	            
+		        <!--  ==========  -->
+				<!--  = Product =  -->
+				<!--  ==========  -->
+                <div class="span3">
+                    <div class="product">
+                        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/most-popular-products/popular-3.png" alt="" width="540" height="412" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">1200 میلیون ریال </h4>
+                            <h5 class="no-margin">محصول ویژه 158</h5>
+                        </div>
+                        <p class="desc">پکیج موتور  گیرلس زیلابگ آلمان سطح 1 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+                    </div>
+                </div> <!-- /product -->
+                 
+	    	     
+	    	            
+		        <!--  ==========  -->
+				<!--  = Product =  -->
+				<!--  ==========  -->
+                <div class="span3">
+                    <div class="product">
+                        <div class="product-img">
+                            <div class="picture">
+                                <img src="images/dummy/most-popular-products/popular-4.png" alt="" width="540" height="412" />
+                                <div class="img-overlay">
+                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    <a href="Shop-search.html" class="btn buy btn-danger">انتخاب قطعات </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">400 میلیون ریال</h4>
+                            <h5 class="no-margin">محصول ویژه 275</h5>
+                        </div>
+                        <p class="desc">پکیج موتور گیرلس سیتور چین سطح 1 کیفیت</p>
+                        <p class="center-align stars">
+                            <span class="icon-star stars-clr"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                            <span class="icon-star"></span>
+                             
+                        </p>
+                    </div>
+                </div> <!-- /product -->
+                    	    </div>
+    	</div>
+    </div> <!-- /most popular -->
+    
+    <!--  ==========  -->
+    <!--  = Lastest News =  -->
+    <!--  ==========  -->
+    <div class="darker-stripe blocks-spacer more-space latest-news with-shadows">
+    	<div class="container">
+    	    
+    	    <!--  ==========  -->
+			<!--  = Title =  -->
+			<!--  ==========  -->
+    		<div class="row">
+    			<div class="span12">
+    			    <div class="main-titles center-align">
+    			        <h2 class="title">
+    			            <span class="clickable icon-chevron-right" id="tweetsRight"></span> &nbsp;&nbsp;&nbsp;
+    			            <span class="light">آخرین</span> خبر ها &nbsp;&nbsp;&nbsp;
+    			            <span class="clickable icon-chevron-left" id="tweetsLeft"></span>
+			            </h2>
+    			    </div>
+    			</div>
+    		</div> <!-- /title -->
+    		
+    		<!--  ==========  -->
+			<!--  = News content =  -->
+			<!--  ==========  -->
+    		<div class="row">
+    		    <div class="span12">
+    		        <div class="carouFredSel" data-nav="tweets" data-autoplay="false">
+    		             
+    		                
+		                <!--  ==========  -->
+						<!--  = Slide =  -->
+						<!--  ==========  --> 
+                        <div class="slide">
+                        	<div class="row">
+                        		<div class="span6">
+                        		    <div class="news-item">
+                        		        <div class="published">30 تیر 1400</div>
+                        		        <h6><a href="#">چگونه از آسانسور خانگی خود نگهداری کنیم؟</a></h6>
+                        		        <p>با برنامه ریزی برای تعمیر و نگهداری منظم آسانسور و هماهنگی با یک شرکت تعمیر آسانسور، شما بجای اینکه پس از بروز مشکلات به حل آن‌ها بپردازید، قبل از بروز مشکلات احتمالی از آنها آگاهی دارید. تعمیر و نگهداری مداوم همچنین می‌تواند عملکرد آسانسور را بهبود بخشد و باعث حرکت آسان و سریع‌تر آسانسور شود. </p>
+                        		    </div>
+                        		</div>
+                        		<div class="span6">
+                        		    <div class="news-item">
+                        		        <div class="published">27 تیر 1400</div>
+                        		        <h6><a href="#">حبس ۱۴ شهروند شهرضایی در آسانسور در هفته گذشته</a></h6>
+                        		        <p>رئیس اداره آتش نشانی شهرستان شهرضا از افزایش تماس‌های مردمی هنگام قطعی برق با آتش‌نشانی خبر داد و گفت: قطعی برق طی روزهای گذشته ۱۴ حادثه محبوس شدن در آسانسور را رقم زد.</p>
+                        		    </div>
+                        		</div>
+                        	</div>
+                        </div> <!-- /slide -->
+                         
+    		                
+		                <!--  ==========  -->
+						<!--  = Slide =  -->
+						<!--  ==========  --> 
+                        <div class="slide">
+                        	<div class="row">
+                        		<div class="span6">
+                        		    <div class="news-item">
+                        		        <div class="published">28 تیر 1400</div>
+                        		        <h6><a href="#">موقع گیر کردن در آسانسور چه کار کنیم؟</a></h6>
+                        		        <p>دسه نکته را فراموش نکنید: اول اینکه سعی کنید باتری گوشی‌تان را الکی هدر ندهید تا اگر نیاز به تماس با بیرون داشتید به کمبود باتری بر نخورید. نکته‌ دوم به هیچ‌وجه سعی نکنید از داخل درها را به زور باز کنید .سومین نکته هم این است که به‌ هیچ وجه سعی نکنید خودتان را از دریچه‌ فوقانی آسانسور بیرون بکشید. اگر سعی کنید اینگونه خودتان را نجات دهید ممکن است دچار برق‌گرفتگی شوید.</p>
+                        		    </div>
+                        		</div>
+                        		<div class="span6">
+                        		    <div class="news-item">
+                        		        <div class="published">25 تیر 1400</div>
+                        		        <h6><a href="#">آسانسوری که در هنگام قطع برق کار میکن!!</a></h6>
+                        		        <p>سیستم و تکنولوژی جدید، که نمونه آن برای اولین بار در نمایشگاه بین المللی تهران "توسط گروه پارلیفت" (Paar Lift Group) رونمایی شده، در "یک آسانسور شش نفره"، فقط معادل مصرف یک سشوار معمولی به انرژی برق نیاز دارد، و در صورت قطع برق شبکه سراسری، این آسانسور قادر است تا 200 استارت بدون نیاز به برق شهر ساعتها کار کند و قطع برق شبکه هیچگونه مانعی برای ادامه حرکت آسانسور نخواهد بود.</p>
+                        		    </div>
+                        		</div>
+                        	</div>
+                        </div> <!-- /slide -->
+                         
+                    </div>
+    		    </div>
+    		</div> <!-- /news content -->
+    	</div>
+    </div> <!-- /latest news -->
+    
+    <!--  ==========  -->
+    <!--  = Brands Carousel =  -->
+    <!--  ==========  -->
+	<div class="container blocks-spacer-last">
+		
+		<!--  ==========  -->
+		<!--  = Title =  -->
+		<!--  ==========  -->
+		<div class="row">
+		    <div class="span12">
+		    	<div class="main-titles lined">
+	                <h2 class="title"><span class="light">برند های</span> ما</h2>
+                    <div class="arrows">
+                        <a href="#" class="icon-chevron-right" id="brandsRight"></a>
+                        <a href="#" class="icon-chevron-left" id="brandsLeft"></a>
+                    </div>
+	            </div>
+		    </div>
+		</div> <!-- /title -->
+		
+		<!--  ==========  -->
+		<!--  = Logos =  -->
+		<!--  ==========  -->
+		<div class="row">
+		    <div class="span12">
+		    	<div class="brands carouFredSel" data-nav="brands" data-autoplay="true">
+                    <img src="images/dummy/brands/brands_01.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_02.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_03.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_04.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_05.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_06.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_07.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_08.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_09.png" alt="" width="203" height="104" />
+                    <img src="images/dummy/brands/brands_10.png" alt="" width="203" height="104" />
+                </div>
+		    </div>
+		</div> <!-- /logos -->
+	</div> <!-- /brands carousel -->

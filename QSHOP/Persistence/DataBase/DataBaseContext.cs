@@ -1,6 +1,7 @@
 ﻿using Common.UserRoles;
 using Domain.Baskets;
 using Domain.Catalogs;
+using Domain.HomePage;
 using Domain.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -28,6 +29,7 @@ namespace Persistence.DataBase
         public DbSet<Domain.Catalogs.System> Systems{ get; set; }
         public DbSet<BasketItem> BasketItems{ get; set; }
         public DbSet<Basket> Baskets{ get; set; }
+        public DbSet<Slider> Sliders{ get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

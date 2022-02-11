@@ -3,6 +3,7 @@ using Application.Services.Catalogs.CatalogBrands;
 using Application.Services.Catalogs.CatalogItems;
 using Application.Services.Catalogs.CatalogTypss;
 using Application.Services.Catalogs.System.SystemServices;
+using Application.Services.HomeServices.Sliders;
 using Domain.Users;
 using Infrastructure.IdentityCustomrErorr;
 using Infrastructure.MappingProfile;
@@ -22,6 +23,7 @@ builder.Services.AddTransient<ICatalogBrandService, CatalogTypeService>();
 builder.Services.AddTransient<ICatalogItemService, CatalogItemService>();
 builder.Services.AddTransient<ISystemServices, SystemServices>();
 builder.Services.AddTransient<IBasketService, BasketService>();
+builder.Services.AddTransient<ISliderService, SliderService>();
 #endregion
 
 
@@ -63,7 +65,7 @@ builder.Services.Configure<IdentityOptions>(option =>
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.ExpireTimeSpan = TimeSpan.FromDays(999);
-    options.LoginPath = "/Account/login";
+    options.LoginPath = "/Home/Index";
     options.AccessDeniedPath = "/Account/Accessdenied";
     options.SlidingExpiration = true;
 });
@@ -104,6 +106,7 @@ app.UseEndpoints(endpoints =>
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 });
+
 
 
 app.Run();

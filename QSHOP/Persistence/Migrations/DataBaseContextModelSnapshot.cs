@@ -268,6 +268,46 @@ namespace Persistence.Migrations
                     b.ToTable("Systems");
                 });
 
+            modelBuilder.Entity("Domain.HomePage.Slider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ImageSrc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Link")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameTage1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameTage2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameTage3")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sliders");
+                });
+
             modelBuilder.Entity("Domain.Users.User", b =>
                 {
                     b.Property<string>("Id")
@@ -337,15 +377,15 @@ namespace Persistence.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "11130f35-031d-4b63-9bf7-301702bd368b",
+                            ConcurrencyStamp = "b460fd9d-f10a-4974-86d1-e4519e7538e2",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAM1hQTzofpZw+G0H8spdjYw37kI6kvsK7rqiV3f19T7wPuZWFElEVeIRSUwXmvK+A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFaCN0xdVXeI7+HouNcbV95FW586+vNug5YC1un5dyEkM/oQ3OXZlV5ONRUhDYwj3g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49339e4e-b9f5-443a-b20c-efb2deddd25e",
+                            SecurityStamp = "6ac02095-152c-4ab9-8cda-e1f170870c73",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -381,19 +421,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "a7490f91-1d3f-4424-81a1-3e955762e22f",
+                            ConcurrencyStamp = "dfe6ac1c-2441-4e22-8f2a-311487cbbe1b",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "c143aa52-189f-4148-9cf0-cd55508dad0b",
+                            ConcurrencyStamp = "ff728fd2-039a-46c3-ab7a-36b084de4ca6",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "794d281a-b8bd-4620-9388-9c7a207d0fad",
+                            ConcurrencyStamp = "23df5763-976f-405f-bcad-7077ff858f2b",
                             Name = "Customer"
                         });
                 });
