@@ -182,7 +182,6 @@ namespace Site.EndPoint.Areas.Admin.Controllers
             var data = _systemServices.Delete(Id);
             return RedirectToAction("Systems");
         }
-
         public EditSystemDto EditSystemDto { get; set; } = new EditSystemDto { };
         [HttpGet]
         public IActionResult EditSystem(int Id)
@@ -195,6 +194,12 @@ namespace Site.EndPoint.Areas.Admin.Controllers
         {
             var data = _systemServices.Edit(editSystemDto);
             return RedirectToAction("Systems");
+        }
+        public IActionResult IsViZhe(int Id)
+        {
+            _catalogItemService.IsViZhe(Id);
+
+            return RedirectToAction("Index");
         }
     }
 }

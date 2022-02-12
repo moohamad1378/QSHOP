@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.DataBase;
 
@@ -11,9 +12,10 @@ using Persistence.DataBase;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220212145709_add_our_News")]
+    partial class add_our_News
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,51 +276,6 @@ namespace Persistence.Migrations
                     b.ToTable("Systems");
                 });
 
-            modelBuilder.Entity("Domain.HomePage.News", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("News");
-                });
-
-            modelBuilder.Entity("Domain.HomePage.OurBrands", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Src")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OurBrands");
-                });
-
             modelBuilder.Entity("Domain.HomePage.Slider", b =>
                 {
                     b.Property<int>("Id")
@@ -428,15 +385,15 @@ namespace Persistence.Migrations
                         {
                             Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1a5d2c32-6222-45c9-8789-1bcf7d046b8f",
+                            ConcurrencyStamp = "f1f7df87-6ddf-4500-9379-7fa280a5dde4",
                             Email = "Qasemiyan.mostafa@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "QASEMIYAN.MOSTAFA@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAECi0JzuMw3rZTIz+ZWk2R6N0+ENhMhxvdDCRnkyDM3+uY2rQfIFpkW7jJihdIuVF6Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEI8tNkS9y6MV65up9WF6OWJ0KvndyjLQkwFiLsTW5DPLAh/VdLBrrhfiOyWc/vWhlQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "394ddce4-4400-4c75-b725-7409b8f3d5ac",
+                            SecurityStamp = "3ddd14d6-7ed8-4ed2-9c60-cee065d0fc29",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -472,19 +429,19 @@ namespace Persistence.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "dd893107-e776-4a02-99c8-71d249e377da",
+                            ConcurrencyStamp = "e2183502-cdfe-49d6-829f-526711169a7b",
                             Name = "Admin"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "afb7536e-46e4-4913-ad50-c28f745522c7",
+                            ConcurrencyStamp = "d186c48d-686e-4e88-929c-5c49c9a29da7",
                             Name = "Operator"
                         },
                         new
                         {
                             Id = "6",
-                            ConcurrencyStamp = "c5a820f4-53d4-4797-bcc8-77d6482f5f6e",
+                            ConcurrencyStamp = "62a35239-ad83-4bac-aa79-4ee68bbce74e",
                             Name = "Customer"
                         });
                 });

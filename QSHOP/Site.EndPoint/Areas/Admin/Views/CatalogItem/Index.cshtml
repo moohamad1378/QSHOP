@@ -26,9 +26,6 @@
                 موجودی انبار
             </th>
             <th>
-                نهایت ظرفیت انبار
-            </th>
-            <th>
                 آیدی یوزری که اینو ساخته
             </th>
             <th>
@@ -55,10 +52,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.AvailableStock)
             </td>
-
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxStockThreshold)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserId)
             </td>
@@ -75,8 +68,16 @@
             </td>
             <td>
                 @Html.ActionLink("تغییر", "Edit", new {  Id=item.Id  }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("حذف", "Delete", new {  Id=item.Id  })
+                @Html.ActionLink("جزیات", "Detail","Product", new {  id=item.Id  }) |
+                @Html.ActionLink("حذف", "Delete", new {  Id=item.Id  })|
+                        @if(item.IsVizhe != true)
+                        {
+                          @Html.ActionLink("وِیژه شود", "IsViZhe", new {  Id=item.Id  })
+                        }
+                        @if(@item.IsVizhe ==true){
+                           @Html.ActionLink(" از ویژه دربیاد", "IsViZhe", new {  Id=item.Id  })
+                        }
+
             </td>
         </tr>
 }

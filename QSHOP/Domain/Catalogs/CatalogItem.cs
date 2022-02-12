@@ -29,6 +29,8 @@ namespace Domain.Catalogs
         public int SystemId { get; set; }
         public Size Size { get; set;}
         public ICollection<Image> Images { get; set; }
+        public bool IsVizhe { get; set; }=false;
+        public long Visit { get; set; }
     }
     public enum Size
     {

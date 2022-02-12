@@ -22,6 +22,8 @@ namespace Application.Services.Catalogs.CatalogItems
         bool Delete(int Id);
         bool Edit(EditCatalogItemDto editCatalogItemDto);
         DetailProductDto Detail(int Id,string Slug);
+        void IsViZhe(int Id);
+        List<viZheDto> getVizhe();
 
         //
         bool AddColor(CreateColorDto createColorDto);
@@ -176,25 +178,11 @@ namespace Application.Services.Catalogs.CatalogItems
                 Price = p.Price,
                 ImageSrc = p.Images.FirstOrDefault().Src,
                 AvailableStock = p.AvailableStock,
-                Slug=p.Slug
+                Slug=p.Slug,
+                UserId=p.UserId,
+                IsVizhe=p.IsVizhe
                 })?.ToList();
             return new PaginatedItemsDto<CatalogItemListDto>(request.page, request.pageSize, rowcount, data);
-
-
-
-            //        var data = _dataBaseContext.CatalogItems
-            //.Include(p => p.Images)
-            //.OrderByDescending(p => p.Id).Select(p => new CatalogItemListDto
-            //{
-            //    Name = p.Name,
-            //    AvailableStock = p.AvailableStock,
-            //    MaxStockThreshold = p.MaxStockThreshold,
-            //    Id = p.Id,
-            //    Price = p.Price,
-            //    UserId = p.UserId,
-            //    RestockThreshold = p.RestockThreshold,
-            //    ImageSrc = p.Images.FirstOrDefault().Src
-            //}).ToList();
         }
         #region Color
         public bool AddColor(CreateColorDto createColorDto)
@@ -325,6 +313,8 @@ namespace Application.Services.Catalogs.CatalogItems
                 .Include(p=>p.Colors)
                 .SingleOrDefault(p => p.Id == Id);
             var system = _dataBaseContext.Systems.SingleOrDefault(p => p.Id == data.SystemId);
+            data.Visit++;
+            _dataBaseContext.SaveChanges();
             DetailProductDto dto = new DetailProductDto
             {
                 Id = Id,
@@ -356,6 +346,48 @@ namespace Application.Services.Catalogs.CatalogItems
             };
             return dto;
         }
+
+        public void IsViZhe(int Id)
+        {
+            var data = _dataBaseContext.CatalogItems.FirstOrDefault(p => p.Id == Id);
+            if(data.IsVizhe == true)
+            {
+                data.IsVizhe = false;
+                _dataBaseContext.SaveChanges();
+                return;
+            }
+            if(data.IsVizhe == false)
+            {
+                data.IsVizhe= true;
+                _dataBaseContext.SaveChanges();
+                return;
+            }
+
+        }
+
+        public List<viZheDto> getVizhe()
+        {
+            var data = _dataBaseContext.CatalogItems
+                .Include(p => p.Images)
+                .Where(p => p.IsVizhe == true)
+                .Select(p => new viZheDto
+                {
+                    Dec = p.Description,
+                    Id = p.Id,
+                    ImageSrc = p.Images.FirstOrDefault().Src,
+                    Slug = p.Slug,
+                    Price=p.Price
+                }).ToList();
+            return data;
+        }
+    }
+    public class viZheDto
+    {
+        public int Id { get; set; }
+        public string Slug { get; set; }
+        public string ImageSrc { get; set; }
+        public string Dec { get; set; }
+        public int Price { get; set; }
     }
     public class CatlogPLPRequestDto
     {
@@ -400,6 +432,7 @@ namespace Application.Services.Catalogs.CatalogItems
         public int MaxStockThreshold { get; set; }
         public string UserId { get; set; }
         public string ImageSrc { get; set; }
+        public bool IsVizhe { get; set; }
 
     }
     public class CatalogItemCreadeDto
@@ -423,6 +456,7 @@ namespace Application.Services.Catalogs.CatalogItems
     }
     public class DetailProductDto
     {
+        public long View { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

@@ -30,6 +30,8 @@ namespace Persistence.DataBase
         public DbSet<BasketItem> BasketItems{ get; set; }
         public DbSet<Basket> Baskets{ get; set; }
         public DbSet<Slider> Sliders{ get; set; }
+        public DbSet<News> News{ get; set; }
+        public DbSet<OurBrands> OurBrands{ get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
