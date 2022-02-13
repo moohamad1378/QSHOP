@@ -155,6 +155,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRmVhdHVyZWRDb21wb25lbnRzXEZlYXR1cmVkQ29tcG9uZW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/MostPupularComponents/MostPupularComponents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTW9zdFB1cHVsYXJDb21wb25lbnRzXE1vc3RQdXB1bGFyQ29tcG9uZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/NewProductComponents/NewProductComponents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3UHJvZHVjdENvbXBvbmVudHNcTmV3UHJvZHVjdENvbXBvbmVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/SliderComponents/SliderComponents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyQ29tcG9uZW50c1xTbGlkZXJDb21wb25lbnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

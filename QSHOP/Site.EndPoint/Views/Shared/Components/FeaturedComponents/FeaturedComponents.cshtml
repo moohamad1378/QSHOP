@@ -40,25 +40,17 @@
     	            	            <div class="picture">
     	            	        	    <img src="~/@item.ImageSrc" alt="" width="518" height="358" />
     	            	        		<div class="img-overlay">
-    	            	        		    <a href="~/product/detail?@item.Id&&@item.Slug" class="btn more btn-primary">توضیحات بیشتر</a>
+    	            	        		    <a href="~/product/Detail?Id=@item.Id&&Slug=@item.Slug" class="btn more btn-primary">توضیحات بیشتر</a>
     	            	        		</div>
     	            	            </div>
     	            	        </div>
     	            	        <div class="main-titles">
-    	            	            <h4 class="title"> @item.Price ریال</h4>
+    	            	            <h4 class="title"> @item.Price.ToString("n0") ریال</h4>
     	            	        </div>
     	            	        <p class="desc">@item.Dec?.Substring(0,30)</p>
     	            	    </div>
                 	      </div> <!-- /product -->
                      }
-                    	 
-                	            	
-
-    	            	 
-    	            	 
-                    	 
-                    	
-                    	 
             	        </div>
             	    </div>
             	    <div class="slide">
