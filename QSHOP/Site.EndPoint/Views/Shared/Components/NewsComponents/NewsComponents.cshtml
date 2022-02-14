@@ -1,0 +1,61 @@
+﻿@using Application.Services.NewsServices
+@model List<NewsListDto>
+@{
+    Layout = null;
+}
+    <div class="darker-stripe blocks-spacer more-space latest-news with-shadows">
+    	<div class="container">
+    	    
+    	    <!--  ==========  -->
+			<!--  = Title =  -->
+			<!--  ==========  -->
+    		<div class="row">
+    			<div class="span12">
+    			    <div class="main-titles center-align">
+    			        <h2 class="title">
+    			            <span class="clickable icon-chevron-right" id="tweetsRight"></span> &nbsp;&nbsp;&nbsp;
+    			            <span class="light">آخرین</span> خبر ها &nbsp;&nbsp;&nbsp;
+    			            <span class="clickable icon-chevron-left" id="tweetsLeft"></span>
+			            </h2>
+    			    </div>
+    			</div>
+    		</div> <!-- /title -->
+    		
+    		<!--  ==========  -->
+			<!--  = News content =  -->
+			<!--  ==========  -->
+    		<div class="row">
+    		    <div class="span12">
+    		        <div class="carouFredSel" data-nav="tweets" data-autoplay="false">
+    		             
+    		                
+		                <!--  ==========  -->
+						<!--  = Slide =  -->
+						<!--  ==========  -->
+
+                            @foreach (var item in Model)
+                            {
+                        <div class="slide">
+
+                        	<div class="row">
+
+                        		<div class="span6">
+                        		    <div class="news-item" style="width:1100px;">
+                        		        <div class="published">@item.Date</div>
+                        		        <h6><a href="#">@item.Title</a></h6>
+                        		        <p>@item.Description</p>
+                        		    </div>
+                        		</div>
+                            
+                        	</div>
+                            
+                        </div>
+                        }
+                        <!-- /slide -->
+
+                         
+                    </div>
+    		    </div>
+    		</div> <!-- /news content -->
+    	</div>
+    </div>

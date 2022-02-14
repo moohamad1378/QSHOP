@@ -18,7 +18,11 @@ namespace Site.EndPoint.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult about()
+        {
+            return View();
+        }
+        public IActionResult contact()
         {
             return View();
         }

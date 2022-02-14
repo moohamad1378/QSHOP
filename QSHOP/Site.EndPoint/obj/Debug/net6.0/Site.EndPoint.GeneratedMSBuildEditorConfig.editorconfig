@@ -111,6 +111,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/News/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/News/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/OurBrand/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3VyQnJhbmRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/OurBrand/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3VyQnJhbmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -125,6 +145,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Basket/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFza2V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Home/about.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxhYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Home/contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxjb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Home/Index.cshtml]
@@ -161,6 +189,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/NewProductComponents/NewProductComponents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3UHJvZHVjdENvbXBvbmVudHNcTmV3UHJvZHVjdENvbXBvbmVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/NewsComponents/NewsComponents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3c0NvbXBvbmVudHNcTmV3c0NvbXBvbmVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/OurBrandComponents/OurBrandComponents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcT3VyQnJhbmRDb21wb25lbnRzXE91ckJyYW5kQ29tcG9uZW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Views/Shared/Components/SliderComponents/SliderComponents.cshtml]

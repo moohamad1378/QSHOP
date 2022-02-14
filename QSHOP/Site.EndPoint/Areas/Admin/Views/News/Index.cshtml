@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Application.Services.NewsServices.NewsListDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="Create">یکی جدید بساز </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                تایتل
+            </th>
+            <th>
+                متن
+            </th>
+            <th>
+                تاریخ
+            </th>
+            <th>
+                کاربر سازنده
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("تغییر", "Edit", new {  id=item.Id  }) |
+                @Html.ActionLink("حذف", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

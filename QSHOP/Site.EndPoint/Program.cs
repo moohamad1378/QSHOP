@@ -4,6 +4,8 @@ using Application.Services.Catalogs.CatalogItems;
 using Application.Services.Catalogs.CatalogTypss;
 using Application.Services.Catalogs.System.SystemServices;
 using Application.Services.HomeServices.Sliders;
+using Application.Services.NewsServices;
+using Application.Services.OurBrandService;
 using Domain.Users;
 using Infrastructure.IdentityCustomrErorr;
 using Infrastructure.MappingProfile;
@@ -24,6 +26,8 @@ builder.Services.AddTransient<ICatalogItemService, CatalogItemService>();
 builder.Services.AddTransient<ISystemServices, SystemServices>();
 builder.Services.AddTransient<IBasketService, BasketService>();
 builder.Services.AddTransient<ISliderService, SliderService>();
+builder.Services.AddTransient<INewsService, NewsService>();
+builder.Services.AddTransient<IOurBrandService, OurBrandService>();
 #endregion
 
 

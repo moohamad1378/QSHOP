@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Application.Services.OurBrandService.ListOurBrandDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>لیست عکس برند ها</h1>
+
+<p>
+    <a asp-action="Create">افزودن </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                عکسش
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="~/@item.Src" style="width:200px;height:200px;">
+            </td>
+            <td>
+
+                @Html.ActionLink("حذف", "Delete", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
