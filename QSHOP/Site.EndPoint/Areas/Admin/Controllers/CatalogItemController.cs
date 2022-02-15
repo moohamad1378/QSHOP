@@ -57,7 +57,6 @@ namespace Site.EndPoint.Areas.Admin.Controllers
             var data=_catalogItemService.AddCatalogItem(catalogItemCreadeDto);
             return RedirectToAction("CreateColor", new {Id=data});
         }
-        [HttpPost]
         public IActionResult Delete(int Id)
         {
             _catalogItemService.Delete(Id);

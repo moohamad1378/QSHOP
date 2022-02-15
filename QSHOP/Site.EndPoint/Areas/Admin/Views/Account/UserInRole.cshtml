@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Site.EndPoint.Areas.Admin.Controllers.UserInrolsDto>
+
+@{
+    ViewData["Title"] = "UserInRole";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>UserInRole</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                نام نقش
+            </th>
+            <th>
+                نام اپراتور
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("حذف از نقش", "RemoveRole", new {  UserId=item.UserId,RoleName=item.RoleName  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

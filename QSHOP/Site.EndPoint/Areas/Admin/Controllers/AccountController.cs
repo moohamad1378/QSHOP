@@ -137,6 +137,24 @@ namespace Site.EndPoint.Areas.Admin.Controllers
 
             return View(rols);
         }
+        [HttpGet]
+        public IActionResult UserInRole(string RoleName)
+        {
+            var rols=_userManager.GetUsersInRoleAsync(RoleName).Result
+                .Select(p=>new UserInrolsDto
+                {
+                    RoleName = RoleName,
+                    UserId=p.Id,
+                    UserName=p.UserName
+                }).ToList();
+            return View(rols);
+        }
+        public IActionResult RemoveRole(string UserId,string RoleName)
+        {
+            var user= _userManager.FindByIdAsync(UserId).Result;
+            var user1=_userManager.RemoveFromRoleAsync(user, RoleName).Result;
+            return RedirectToAction("Rols");
+        }
         public IActionResult Success()
         {
 
@@ -147,5 +165,11 @@ namespace Site.EndPoint.Areas.Admin.Controllers
     {
         public string Id { get; set; }
         public string Name { get; set; }
+    }
+    public class UserInrolsDto
+    {
+        public string UserId { get; set; }
+        public string RoleName { get; set; }
+        public string UserName { get; set; }
     }
 }

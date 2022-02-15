@@ -34,6 +34,9 @@
             <td>
                 @Html.ActionLink("اضافه کردن کاربر به این نقش", "Index","Account", new {  roleid=item.Id,area = "Admin"  }) 
             </td>
+            <td>
+                @Html.ActionLink("لیست کاربران این نقش", "UserInRole","Account", new {  RoleName=item.Name,area = "Admin"  }) 
+            </td>                                                        
         </tr>
 }
     </tbody>

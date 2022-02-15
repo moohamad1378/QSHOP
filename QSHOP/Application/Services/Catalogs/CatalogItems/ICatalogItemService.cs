@@ -89,6 +89,7 @@ namespace Application.Services.Catalogs.CatalogItems
         {
             var finded=_dataBaseContext.CatalogItems.SingleOrDefault(p => p.Id == Id);
             _dataBaseContext.CatalogItems.Remove(finded);
+            _dataBaseContext.SaveChanges();
             return true;
         }
 
@@ -176,7 +177,7 @@ namespace Application.Services.Catalogs.CatalogItems
                 Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
-                ImageSrc = p.Images.FirstOrDefault().Src,
+                ImageSrc = p.Images?.FirstOrDefault()?.Src,
                 AvailableStock = p.AvailableStock,
                 Slug=p.Slug,
                 UserId=p.UserId,
