@@ -15,6 +15,7 @@ namespace Application.Services.Baskets
         void DeleteBasketItem(int Id);
         bool SetQuantity(int CatalogItemId, int quantity);
         BasketDto GetBasketForUser(string UserId);
+        void TransferBasket(string anonymousId, string UserId);
     }
     public class BasketService : IBasketService
     {
@@ -56,7 +57,7 @@ namespace Application.Services.Baskets
             }
             foreach (var item in Basket.Items)
             {
-                var calorname = _dataBaseContext.Colors.FirstOrDefault(p => p.Id == item.ColorId).Name;
+                var calorname = _dataBaseContext.Colors?.FirstOrDefault(p => p.Id == item.ColorId)?.Name;
 
             }
             return new BasketDto
@@ -90,7 +91,7 @@ namespace Application.Services.Baskets
             }
             foreach (var item in Basket.Items)
             {
-                var calorname = _dataBaseContext.Colors.FirstOrDefault(p => p.Id == item.ColorId).Name;
+                var calorname = _dataBaseContext.Colors?.FirstOrDefault(p => p.Id == item.ColorId)?.Name;
                 
             }
             return new BasketDto
@@ -118,6 +119,30 @@ namespace Application.Services.Baskets
             item.SetQuantity(quantity);
             _dataBaseContext.SaveChanges();
             return true;
+        }
+
+        public void TransferBasket(string anonymousId, string UserId)
+        {
+            var anonymousBasket=_dataBaseContext.Baskets.SingleOrDefault(p=>p.BuyerId == anonymousId);
+            if(anonymousBasket == null)
+            {
+                return;
+            }
+            var userBasket = _dataBaseContext.Baskets.SingleOrDefault(p => p.BuyerId == UserId);
+            if (userBasket == null)
+            {
+                userBasket = new Basket();
+                userBasket.BuyerId = UserId;
+                _dataBaseContext.Baskets.Add(userBasket);
+            }
+
+            foreach (var item in anonymousBasket.Items)
+            {
+                userBasket.AddItem(item.CatalogItemId,item.MaterialId,item.UnitPrice,item.ColorId, item.Quantity);
+            }
+            _dataBaseContext.Baskets.Remove(anonymousBasket);
+
+            _dataBaseContext.SaveChanges();
         }
 
         private BasketDto CreateBasketForUser(string BuyerId)

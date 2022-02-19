@@ -155,6 +155,7 @@ namespace Site.EndPoint.Areas.Admin.Controllers
             var user1=_userManager.RemoveFromRoleAsync(user, RoleName).Result;
             return RedirectToAction("Rols");
         }
+
         public IActionResult Success()
         {
 

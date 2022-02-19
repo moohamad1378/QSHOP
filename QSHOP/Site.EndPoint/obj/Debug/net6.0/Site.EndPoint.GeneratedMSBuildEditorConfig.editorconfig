@@ -59,6 +59,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0YWxvZ0l0ZW1cQWRkU3lzdGVtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/CatalogItem/catalogforImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0YWxvZ0l0ZW1cY2F0YWxvZ2ZvckltYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/CatalogItem/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0YWxvZ0l0ZW1cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -85,6 +89,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/CatalogItem/EditSystem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0YWxvZ0l0ZW1cRWRpdFN5c3RlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/CatalogItem/Images.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0YWxvZ0l0ZW1cSW1hZ2VzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/QSHOP/QSHOP/Site.EndPoint/Areas/Admin/Views/CatalogItem/Index.cshtml]

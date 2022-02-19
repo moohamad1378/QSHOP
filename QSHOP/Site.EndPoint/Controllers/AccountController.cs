@@ -1,4 +1,5 @@
-﻿using Common.Dtos;
+﻿using Application.Services.Baskets;
+using Common.Dtos;
 using Domain.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,12 +12,14 @@ namespace Site.EndPoint.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _SignInManager;
         private readonly IAuthorizationService _authorizationService;
+        private readonly IBasketService _basketService;
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager
-            , IAuthorizationService authorizationService)
+            , IAuthorizationService authorizationService, IBasketService basketService)
         {
             _userManager=userManager;
             _SignInManager = signInManager;
             _authorizationService=authorizationService;
+            _basketService=basketService;
         }
         public IActionResult Index()
         {
@@ -43,8 +46,9 @@ namespace Site.EndPoint.Controllers
             if (usercreated.Succeeded)
             {
                 var findeduser=_userManager.FindByNameAsync(user.UserName).Result;
-                var logined = _SignInManager.PasswordSignInAsync(findeduser, findeduser.PasswordHash, true, true).Result;
-                _SignInManager.SignInAsync(findeduser, true);
+                var logined = _SignInManager.PasswordSignInAsync(findeduser,userDto.Password,true,false).Result;
+                TransferBasketForuser(findeduser.Id);
+                //_SignInManager.SignInAsync(findeduser, true);
                 return RedirectToAction("Index", "Home");
             }
 
@@ -73,6 +77,7 @@ namespace Site.EndPoint.Controllers
             var result = _SignInManager.PasswordSignInAsync(users, userLoginDto.Password, true, true).Result;
             if (result.Succeeded)
             {
+                TransferBasketForuser(users.Id);
                 return RedirectToAction("Index", "Home");
             }
             return View();
@@ -81,6 +86,16 @@ namespace Site.EndPoint.Controllers
         {
             var logout = _SignInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+        private void TransferBasketForuser(string userId)
+        {
+            string cookieName = "BasketId";
+            if (Request.Cookies.ContainsKey(cookieName))
+            {
+                var anonymousId = Request.Cookies[cookieName];
+                _basketService.TransferBasket(anonymousId, userId);
+                Response.Cookies.Delete(cookieName);
+            }
         }
     }
 

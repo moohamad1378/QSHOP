@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DCvlM3AIuPbj1KYv+llmUV8nqpAiY82+peUWqn3umK8=",
+  "Hash": "S/LHyBoC+raJoXaGnch8NNhngrwMc2c/4sU6tpxxBkQ=",
   "Source": "Site.EndPoint",
   "BasePath": "_content/Site.EndPoint",
   "Mode": "Default",
@@ -323,6 +323,23 @@
       "OriginalItemSpec": "wwwroot\\images\\Item\\Picture\\637804752414662373پرواز های خروجی.jpg"
     },
     {
+      "Identity": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\images\\Item\\Picture\\637806480029451117پرواز های خروجی.jpg",
+      "SourceId": "Site.EndPoint",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\",
+      "BasePath": "_content/Site.EndPoint",
+      "RelativePath": "images/Item/Picture/637806480029451117پرواز های خروجی.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Item\\Picture\\637806480029451117پرواز های خروجی.jpg"
+    },
+    {
       "Identity": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\images\\Slider\\Picture\\637802042581541360پرواز های خروجی.jpg",
       "SourceId": "Site.EndPoint",
       "SourceType": "Discovered",
@@ -440,6 +457,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\Slider\\Picture\\637802218206115033slide.jpg"
+    },
+    {
+      "Identity": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\images\\Slider\\Picture\\637806505157290887پرواز های خروجی.jpg",
+      "SourceId": "Site.EndPoint",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\",
+      "BasePath": "_content/Site.EndPoint",
+      "RelativePath": "images/Slider/Picture/637806505157290887پرواز های خروجی.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Slider\\Picture\\637806505157290887پرواز های خروجی.jpg"
     },
     {
       "Identity": "F:\\QSHOP\\QSHOP\\Site.EndPoint\\wwwroot\\js\\site.js",

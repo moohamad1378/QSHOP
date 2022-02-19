@@ -2,6 +2,7 @@
 using Domain.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Site.EndPoint.Models.Utility;
 
 namespace Site.EndPoint.Controllers
 {
@@ -43,7 +44,8 @@ namespace Site.EndPoint.Controllers
         {
             if (_signInManager.IsSignedIn(User))
             {
-                return _basketService.GetOrCreateBasketForUser(User.Identity.Name);
+                var id = ClaimUtility.GetUserId(User);
+                return _basketService.GetOrCreateBasketForUser(id);
             }
             else
             {

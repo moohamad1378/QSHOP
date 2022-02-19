@@ -200,5 +200,20 @@ namespace Site.EndPoint.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult catalogforImage(CatlogPLPRequestDto catlogPLPRequestDto)
+        {
+            var data = _catalogItemService.ListForAdmin(catlogPLPRequestDto);
+            return View(data);
+        }
+        public IActionResult Images(int Id)
+        {
+            var data=_catalogItemService.GetImages(Id);
+            return View(data);
+        }
+        public IActionResult DeleteImage(int Id,int catalog)
+        {
+            _catalogItemService.DeleteImage(Id);
+            return RedirectToAction("Images", new {Id=catalog});
+        }
     }
 }

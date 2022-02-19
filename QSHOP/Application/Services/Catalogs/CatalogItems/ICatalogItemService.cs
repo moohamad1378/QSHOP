@@ -25,6 +25,8 @@ namespace Application.Services.Catalogs.CatalogItems
         void IsViZhe(int Id);
         List<viZheDto> getVizhe();
 
+        List<ImgaeListFOrDelete> GetImages(int Id);
+        void DeleteImage(int Id);
         //
         bool AddColor(CreateColorDto createColorDto);
         List<ColorListDto> ListOfColor(int Id);
@@ -326,23 +328,23 @@ namespace Application.Services.Catalogs.CatalogItems
                 Name = data.Name,
                 Price = data.Price,
                 Size = data.Size,
-                Systemname = system.Name,
+                Systemname = system?.Name,
 
                 Src = data.Images.Select(p => new Images
                 {
                     Id = p.Id,
                     ImageSrc = p.Src
-                }).ToList(),
+                })?.ToList(),
                 DetailColorDtos = data.Colors.Select(p => new DetailColorDto
                 {
                     Id = p.Id,
                     Name = p.Name
-                }).ToList(),
+                })?.ToList(),
                 DetailMaterialDtos = data.Materials.Select(p => new DetailMaterialDto
                 {
                     Id = p.Id,
                     Name = p.Name
-                }).ToList(),
+                })?.ToList(),
 
             };
             return dto;
@@ -380,6 +382,25 @@ namespace Application.Services.Catalogs.CatalogItems
                     Price=p.Price
                 }).ToList();
             return data;
+        }
+
+        public List<ImgaeListFOrDelete> GetImages(int Id)
+        {
+            var data = _dataBaseContext.Images.Where(p => p.CataLogItemId == Id)
+                .Select(p => new ImgaeListFOrDelete
+                {
+                    Id = p.Id,
+                    Src = p.Src,
+                    CatalogItemID=Id
+                })?.ToList();
+            return data;
+        }
+
+        public void DeleteImage(int Id)
+        {
+            var data = _dataBaseContext.Images.FirstOrDefault(p => p.Id == Id);
+            _dataBaseContext.Images.Remove(data);
+            _dataBaseContext.SaveChanges();
         }
     }
     public class viZheDto
@@ -422,6 +443,12 @@ namespace Application.Services.Catalogs.CatalogItems
         mostExpensive = 6,
     }
     #region catalogItem
+    public class ImgaeListFOrDelete
+    {
+        public int Id { get; set; }
+        public string Src { get; set; }
+        public int CatalogItemID { get; set; }
+    }
     public class CatalogItemListDto
     {
         public int Id { get; set; }
