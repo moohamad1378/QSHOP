@@ -59,8 +59,7 @@ namespace Site.EndPoint.Controllers
             }
             TempData["Message"] = message;
 
-            return View(userDto);
-            return View();
+            return RedirectToAction("Index","Home");
         }
         public IActionResult Login(UserLoginDto userLoginDto)
         {

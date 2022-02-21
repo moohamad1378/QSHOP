@@ -131,7 +131,7 @@
                 <div class="d-flex justify-content-between px-3 py-2">
                     <span class="font-weight-bold">جمع</span>
                     <span class="font-weight-bold">
-                        @Model.Items.Sum(p => p.UnitPrice * p.Quantity).ToString("n0")
+                        @Model.Total().ToString("n0")
                         <span class="text-sm">تومان</span>
                     </span>
                 </div>

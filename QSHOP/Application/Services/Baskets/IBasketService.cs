@@ -123,7 +123,9 @@ namespace Application.Services.Baskets
 
         public void TransferBasket(string anonymousId, string UserId)
         {
-            var anonymousBasket=_dataBaseContext.Baskets.SingleOrDefault(p=>p.BuyerId == anonymousId);
+            var anonymousBasket=_dataBaseContext.Baskets
+                .Include(p => p.Items)
+                .SingleOrDefault(p=>p.BuyerId == anonymousId);
             if(anonymousBasket == null)
             {
                 return;
@@ -165,6 +167,15 @@ namespace Application.Services.Baskets
         public int Id { get; set; }
         public string BuyerId { get; set; }
         public List<BasketItemDto> Items { get; set; }
+        public int Total()
+        {
+            if (Items.Count > 0)
+            {
+                int total = Items.Sum(p => p.UnitPrice * p.Quantity);
+                return total;
+            }
+            return 0;
+        }
     }
     public class BasketItemDto
     {

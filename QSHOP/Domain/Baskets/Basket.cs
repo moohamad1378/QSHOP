@@ -26,6 +26,7 @@ namespace Domain.Baskets
                     MaterialId=MaterialId,
                     ColorId=ColorId
                 });
+                return;
             }
             var Exist = Items.FirstOrDefault(p => p.CatalogItemId == catalogitemId);
             Exist.AddQuantity(Quantity);
