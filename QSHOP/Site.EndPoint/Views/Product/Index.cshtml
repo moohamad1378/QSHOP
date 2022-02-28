@@ -68,9 +68,6 @@
                     <!--  ==========  -->
                     <div class="underlined push-down-20">
                         <div class="row">
-                            <div class="span5">
-                                <h3><span class="light">جستجو:</span> "قطعات"</h3>
-                            </div>
                             <div class="span4">
                                 <div class="form-inline sorting-by">
                                     <label for="isotopeSorting" class="black-clr">چینش:</label>
@@ -124,9 +121,21 @@
                     	    
                     	</div>
                 	</div>
+                    
+                                @{
+                                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                                }
                 	<hr>
                     <div class="pagination pagination-centered">
                         <ul>
+                                               <li class="paginate_button page-item active">
+                                                    <a asp-action="Index"
+                                                       asp-route-page="@(Model.PageIndex - 1)"
+                                                       class="btn btn-default @prevDisabled">
+                                                        قبلی
+                                                    </a>
+                                                </li>
                                                 @foreach (var item in Model.Pager.Pages)
                                                 {
                                                     if (item == Model.PageIndex)
@@ -149,10 +158,16 @@
                                                                class="page-link"> @item</a>
                                                         </li>
                                                     }
-
                                                 }
-                        </ul>
+                                                <li class="paginate_button page-item ">
 
+                                                    <a  asp-action="Index" 
+                                                       asp-route-page="@(Model.PageIndex + 1)"
+                                                       class="btn btn-default @nextDisabled">
+                                                        بعدی
+                                                    </a>
+                                                </li>
+                        </ul>
                     </div>
                 </section> 
             </div>
